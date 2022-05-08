@@ -2,23 +2,46 @@
 <style>
   .flex {
     display: flex;
-    justify-content: center;
-    gap: 12px
+    align-items: center;
+    gap: 12px;
+    flex-direction: column;
   }
-  .copyright {
+  footer {
     background-color: rgb(var(--primary-rgb));
     color: white;
     padding: 22px;
   }
+  footer a {
+    color: white;
+  }
+  .content {
+    padding: 24px 12px;
+    display: flex;
+    justify-content: center;
+    gap: 54px;
+    flex-wrap: wrap;
+  }
+  @media(max-width: 600px) {
+    .content {
+      gap: 20px;
+    }
+  }
+  .copyright {
+    margin: 26px 0
+  }
 </style>
 <footer>
-  <div>
+  <div class="content">
     <div class="flex">
-      Nous contacter:
+      <h3>Distillerie l'eau folle</h3>
+      <span>L'eau Folle</span>
+      <span>60 Place ARISTIDE BRIAND</span>
+      <span>73600 MOUTIERS</span>
     </div>
     <div class="flex">
-      <span>email: test@test.com</span>
-      <span>mobile: 0606060606</span>
+      <h3>Contact</h3>
+      <a href="mailto:">Email: test@test.com</span>
+      <a href="tel:+33 7 48 11 29 37">Tel: +33 7 48 11 29 37</a>
     </div>
   </div>
   <div class="copyright flex">

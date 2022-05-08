@@ -38,11 +38,14 @@ const ImageLazyLoad = ({
     <img
       class={props.class}
       style={{
-        filter: blur ? "blur(20px)" : "none",
-        transition: blur ? "none" : "filter 0.5s ease-out",
+        filter: blur ? "blur(8px)" : "none",
+        transition: blur ? "none" : "filter 0.2s ease-out",
         backgroundImage: `url(${srcToUse})`,
+        clipPath: "rect(0)",
       }}
-    />
+    >
+      {children}
+    </img>
   );
 };
 

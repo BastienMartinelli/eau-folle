@@ -1,9 +1,13 @@
 ---
+import "normalize.css";
 import ImageLazyLoad from "../components/ImageLazyLoad";
+import Footer from "../components/Footer.astro";
+import Navbar from "../components/Navbar";
+import Map from "../components/Map.astro"
+import Card from "../components/Card.astro"
 import "./global.css";
+import "./index.css";
 
-// Full Astro Component Syntax:
-// https://docs.astro.build/core-concepts/astro-components/
 ---
 
 <html lang="en">
@@ -14,7 +18,7 @@ import "./global.css";
 		<meta name="description" content="Distillerie de Tarentaise, Moûtiers."/>
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -22,78 +26,39 @@ import "./global.css";
 		<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 		<meta name="msapplication-TileColor" content="#da532c">
 		<meta name="theme-color" content="#2d184c">
-		<style>
-			.hero-section {
-				height: 100vh;
-			}
-			.hero-img {
-				height: 100vh;
-				background-size: cover;
-				background-repeat: no-repeat;
-				background-position: center;
-				background-attachment: fixed;
-			}
-			.full-over {
-				position: absolute;
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: 100%;
-			}
-			.hero-content {
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				z-index: 2;
-				animation: fadeIn 1s;
-			}
-			.hero-content img {
-				filter: drop-shadow(2px 4px 10px rgba(0, 0, 0, 0.5));
-				max-width: 100%;
-				width: 500px;
-				z-index: 1;
-			}
-			.hero-overlay {
-				background-color: rgba(var(--background-rgb), 0.5);
-			}
-			.page-title {
-				visibility: hidden;
-				position: absolute;
-				top: -5000px;
-			}
-			.subtitle {
-				margin: 0;
-				z-index: 1;
-				font-size: 2.5rem;
-				text-align: center;
-				text-transform: uppercase;
-				filter: drop-shadow(2px 4px 10px rgba(0, 0, 0, 0.5));
-			}
-			@keyframes fadeIn {
-				0% {
-					opacity:0;
-					transform: scale(0.8)
-				}
-				100% {
-					opacity:1;
-					transform: scale(1);
-				}
-			}
-		</style>
 	</head>
 	<body>
 		<main>
-			<section class="hero-section">
+		<Navbar client:only />
+			<section class="hero">
 				<ImageLazyLoad client:load src="/hero.webp" lowRezSrc="/hero-low.webp" class="hero-img full-over" />
 				<div class="hero-overlay full-over" />
 				<div class="hero-content">
-					<img src="/logo.svg" class="img" alt="L'eau folle logo" />
+					<img src="/logo.svg" class="logo" alt="L'eau folle logo" />
 					<h1 class="page-title">
 						Distillerie de Tarentaise l'eau folle, Moûtiers 
 					</h1>
-					<h2 class="subtitle">Ouverture prochainement</h2>
+				</div>
+			</section>
+			<section class="about">
+				<div class="container">
+					<Card title="Distillerie de Tarentaise">
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+					</Card>
+				</div>
+			</section>
+				<section class="about">
+				<div class="container">
+					<Card title="La boutique">
+						<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</div>
+						<div class="map-container">
+							<Map />
+						</div>
+					</Card>
 				</div>
 			</section>
 		</main>
+		<Footer />
 	</body>
 </html>
