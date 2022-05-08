@@ -35,7 +35,7 @@
 
 .hero-overlay {
   background: linear-gradient(
-    rgba(var(--background-rgb), 0.5),
+    rgba(var(--background-rgb), 0.4),
     rgba(var(--background-rgb), 1) 95%
   );
   transform: scaleY(1.1);

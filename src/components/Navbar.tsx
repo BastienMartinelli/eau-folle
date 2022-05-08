@@ -1,17 +1,13 @@
-import { useCallback, useEffect, useState } from "preact/hooks";
+import { useEffect, useState } from "preact/hooks";
 import styles from "./Navbar.module.css";
 
 const isScrolled = () => {
-  const scrollY = window.scrollY;
-  let isScrolled = false;
-  if (scrollY > 0) {
-    isScrolled = true;
-  }
-  return isScrolled;
+  const scrollY = globalThis.window.scrollY || 0;
+  return scrollY > 0;
 };
 
 const Navbar = () => {
-  const [scrolled, setScrolled] = useState(isScrolled());
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,7 +25,7 @@ const Navbar = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [scrolled]);
+  }, [scrolled, setScrolled]);
 
   return (
     <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ""}`}>
