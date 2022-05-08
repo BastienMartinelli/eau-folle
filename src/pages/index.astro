@@ -29,20 +29,25 @@ import "./index.css";
 	</head>
 	<body>
 		<main>
-		<Navbar client:load />
+			<Navbar client:load />
 			<section class="hero">
-				<ImageLazyLoad client:load src="/hero.webp" lowRezSrc="/hero-low.webp" class="hero-img full-over" />
+				<ImageLazyLoad
+					client:load src="/hero.webp"
+					lowRezSrc="/hero-low.webp"
+					class="hero-img full-over"
+					alt="mountain backgroud"
+				/>
 				<div class="hero-overlay full-over" />
 				<div class="hero-content">
 					<img src="/logo.svg" class="logo" alt="L'eau folle logo" />
-					<h1 class="page-title">
+					<h1 class="page-title" id="home">
 						Distillerie de Tarentaise l'eau folle, Moûtiers 
 					</h1>
 				</div>
 			</section>
 			<section class="about">
 				<div class="container">
-					<Card title="Distillerie de Tarentaise">
+					<Card title="Distillerie de Tarentaise" id="about">
 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 					</Card>

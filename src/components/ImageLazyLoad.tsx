@@ -1,12 +1,12 @@
-import { ComponentChildren } from "preact";
+import { ComponentChildren, JSX } from "preact";
 import { useState, useEffect } from "preact/hooks";
 
 type ImageLazyLoadProps = {
   src: string;
   lowRezSrc: string;
   class?: string;
-  children: ComponentChildren;
-};
+  children?: ComponentChildren;
+} & JSX.HTMLAttributes<HTMLImageElement>;
 
 const useProgressiveImg = (
   lowQualitySrc: string,
@@ -30,12 +30,15 @@ const ImageLazyLoad = ({
   src,
   lowRezSrc,
   children,
+  alt,
   ...props
 }: ImageLazyLoadProps) => {
   const [srcToUse, blur] = useProgressiveImg(lowRezSrc, src);
 
   return (
     <img
+      {...props}
+      alt={blur ? undefined : alt}
       class={props.class}
       style={{
         filter: blur ? "blur(8px)" : "none",

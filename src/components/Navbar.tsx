@@ -1,5 +1,5 @@
 import { useEffect, useState } from "preact/hooks";
-import styles from "./Navbar.module.css";
+import * as styles from "./Navbar.module.css";
 
 const isScrolled = () => {
   const scrollY = globalThis.window.scrollY || 0;
@@ -29,9 +29,9 @@ const Navbar = () => {
 
   return (
     <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ""}`}>
-      <a>Accueil</a>
-      <a>A propos</a>
-      <a>Contact</a>
+      <a href="#home">Accueil</a>
+      <a href="#about">A propos</a>
+      <a href="#contact">Contact</a>
     </nav>
   );
 };

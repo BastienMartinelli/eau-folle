@@ -12,13 +12,14 @@
   transition: background-color 500ms, box-shadow 500ms;
 }
 
-.nav > * {
+.nav > a {
   text-decoration: underline 0.15em rgba(0, 0, 0, 0);
   text-underline-offset: 0.2em;
   transition: text-decoration-color 300ms, text-underline-offset 300ms;
+  color: inherit;
 }
 
-.nav > *:hover {
+.nav > a:hover {
   text-decoration-color: var(--primary-color);
 }
 
