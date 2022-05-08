@@ -1,5 +1,9 @@
 ---
-export const API_KEY = await import.meta.env.GOOGLE_API_KEY;
+let API_KEY = await import.meta.env.GOOGLE_API_KEY;
+
+if (API_KEY == null) {
+  API_KEY = process.env.GOOGLE_API_KEY;
+}
 ---
 
 {API_KEY != null && (
