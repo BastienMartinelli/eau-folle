@@ -1,5 +1,5 @@
 {
-  "name": "@example/framework-preact",
+  "name": "eau-folle",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -14,6 +14,6 @@
   "dependencies": {
     "@astrojs/preact": "^0.1.2",
     "normalize.css": "^8.0.1",
-    "preact": "^10.5.15"
+    "preact": "^10.7.2"
   }
 }
