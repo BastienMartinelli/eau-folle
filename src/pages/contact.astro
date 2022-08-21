@@ -1,0 +1,51 @@
+---
+import Map from "../components/Map.astro";
+import Layout from "../components/Layout.astro";
+import Hero from "../components/Hero.astro";
+import Card from "../components/Card.astro";
+---
+
+<style>
+  .contact {
+    margin-top: 120px;
+  }
+
+  .map-container {
+    margin-top: 2rem;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  a {
+    color: currentColor;
+    transition: color 200ms;
+  }
+
+  a:hover,
+  a:focus-visible {
+    color: var(--color-secondary);
+  }
+</style>
+
+<Layout title="Nous contacter">
+  <section class="container contact">
+    <Card title="Nous contacter">
+      <ul>
+        <li><a href="mailto:">Email: distillerieleaufolle@gmail.com</a></li>
+        <li>
+          <a href="tel:+33 7 48 11 29 37">Téléphone: +33 7 48 11 29 37</a>
+        </li>
+      </ul>
+    </Card>
+  </section>
+  <section class="container map-container">
+    <Map />
+  </section>
+</Layout>

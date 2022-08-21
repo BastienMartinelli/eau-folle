@@ -1,6 +1,5 @@
 ---
-const { title, id } = Astro.props
-
+const { title, id } = Astro.props;
 ---
 
 <style>
@@ -11,9 +10,9 @@ const { title, id } = Astro.props
   .card-title {
     font-size: 50px;
     font-weight: 600;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
     position: relative;
-    color: var(--color-primary)
+    color: var(--color-primary);
   }
 
   .card-title:before {
@@ -23,8 +22,8 @@ const { title, id } = Astro.props
     width: 60px;
     border-radius: 9999px;
     position: absolute;
-    bottom: -10px;
-    left: -10px;
+    bottom: -16px;
+    left: 0px;
     background-color: var(--color-secondary);
   }
 </style>

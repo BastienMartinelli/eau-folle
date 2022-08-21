@@ -29,9 +29,9 @@ const Navbar = () => {
 
   return (
     <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ""}`}>
-      <a href="#home">Accueil</a>
-      <a href="#about">A propos</a>
-      <a href="#contact">Contact</a>
+      <a href="/">Accueil</a>
+      <a href="/gammes">Gamme</a>
+      <a href="/contact">Contact</a>
     </nav>
   );
 };
