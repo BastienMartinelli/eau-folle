@@ -42,8 +42,6 @@ const Navbar = () => {
       page = "contact";
     }
 
-    console.log(page);
-
     setCurrent(page);
   }, []);
 
