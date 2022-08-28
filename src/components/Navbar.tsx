@@ -6,8 +6,11 @@ const isScrolled = () => {
   return scrollY > 0;
 };
 
+type Page = "gamme" | "home" | "contact";
+
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [current, setCurrent] = useState<Page>();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,7 +22,9 @@ const Navbar = () => {
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, {
+      passive: true,
+    });
     handleScroll();
 
     return () => {
@@ -27,11 +32,44 @@ const Navbar = () => {
     };
   }, [scrolled, setScrolled]);
 
+  useEffect(() => {
+    const currentUrl = window.location.href;
+    let page: Page = "home";
+
+    if (currentUrl.includes("gamme")) {
+      page = "gamme";
+    } else if (currentUrl.includes("contact")) {
+      page = "contact";
+    }
+
+    console.log(page);
+
+    setCurrent(page);
+  }, []);
+
+  const getCurrent = (page: Page) => {
+    return current === page ? { "aria-current": "page" } : {};
+  };
+
   return (
-    <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ""}`}>
-      <a href="/">Accueil</a>
-      <a href="/gammes">Gamme</a>
-      <a href="/contact">Contact</a>
+    <nav>
+      <ul className={`${styles.nav} ${scrolled ? styles.scrolled : ""}`}>
+        <li>
+          <a href="/" {...getCurrent("home")}>
+            Accueil
+          </a>
+        </li>
+        <li>
+          <a href="/gammes" {...getCurrent("gamme")}>
+            Gamme
+          </a>
+        </li>
+        <li>
+          <a href="/contact" {...getCurrent("contact")}>
+            Contact
+          </a>
+        </li>
+      </ul>
     </nav>
   );
 };

@@ -24,16 +24,31 @@ body {
   font-family: "Roboto", sans-serif;
   width: 100%;
   background-color: var(--color-background);
-  font-size: 22px;
+  font-size: 19px;
   scroll-behavior: smooth;
 }
 
 a {
   cursor: pointer;
+  color: var(--color-primary);
+  text-decoration-color: transparent;
+  text-decoration: underline 0.15em rgba(0, 0, 0, 0);
+  text-underline-offset: 0.2em;
+  transition: text-decoration-color 200ms, text-underline-offset 200ms;
+}
+
+a:visited {
+  color: var(--Color-primary);
 }
 
 a:hover {
   color: var(--color-primary);
+  text-decoration-color: var(--color-primary);
+}
+
+a[aria-current="page"] {
+  color: var(--color-secondary);
+  text-decoration-color: var(--color-secondary);
 }
 
 .container {

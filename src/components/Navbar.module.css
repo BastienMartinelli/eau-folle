@@ -10,17 +10,9 @@
   gap: 2rem;
   font-size: 1rem;
   transition: background-color 500ms, box-shadow 500ms;
-}
-
-.nav > a {
-  text-decoration: underline 0.15em rgba(0, 0, 0, 0);
-  text-underline-offset: 0.2em;
-  transition: text-decoration-color 300ms, text-underline-offset 300ms;
-  color: inherit;
-}
-
-.nav > a:hover {
-  text-decoration-color: var(--primary-color);
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .scrolled {
