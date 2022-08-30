@@ -1,5 +1,5 @@
 {
-  "name": "@example/framework-preact",
+  "name": "eau-folle",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -9,9 +9,12 @@
     "preview": "astro preview"
   },
   "devDependencies": {
-    "astro": "^0.22.20"
+    "@types/node": "^17.0.31",
+    "astro": "^1.0.0-beta.27"
   },
   "dependencies": {
-    "preact": "^10.5.15"
+    "@astrojs/preact": "^0.1.2",
+    "normalize.css": "^8.0.1",
+    "preact": "^10.7.2"
   }
 }

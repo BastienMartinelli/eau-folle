@@ -1,0 +1,84 @@
+:root {
+  --background-rgb: 246, 243, 233;
+  --primary-rgb: 45, 24, 76;
+  --secondary-rgb: 156, 30, 45;
+
+  --color-primary: rgb(var(--primary-rgb));
+  --color-secondary: rgb(var(--secondary-rgb));
+  --color-background: rgb(var(--background-rgb));
+  --color-emphasis: #f1f1f1;
+
+  --shadow-1: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  --shadow-2: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  --shadow-3: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.07),
+    0 4px 8px rgba(0, 0, 0, 0.07), 0 8px 16px rgba(0, 0, 0, 0.07),
+    0 16px 32px rgba(0, 0, 0, 0.07), 0 32px 64px rgba(0, 0, 0, 0.07);
+
+  --border-radius: 16px;
+}
+
+html,
+body {
+  font-family: "Roboto", sans-serif;
+  width: 100%;
+  background-color: var(--color-background);
+  font-size: 19px;
+  scroll-behavior: smooth;
+}
+
+a {
+  cursor: pointer;
+  color: var(--color-primary);
+  text-decoration-color: transparent;
+  text-decoration: underline 0.15em rgba(0, 0, 0, 0);
+  text-underline-offset: 0.2em;
+  transition: text-decoration-color 200ms, text-underline-offset 200ms;
+}
+
+a:visited {
+  color: var(--Color-primary);
+}
+
+a:hover {
+  color: var(--color-primary);
+  text-decoration-color: var(--color-primary);
+}
+
+a[aria-current="page"] {
+  color: var(--color-secondary);
+  text-decoration-color: var(--color-secondary);
+}
+
+.container {
+  max-width: 1080px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 16px 0 16px;
+  box-sizing: border-box;
+}
+
+.quote {
+  font-family: "Lora", serif;
+}
+
+h1,
+h2 {
+  margin-block-start: 0px;
+  margin-block-end: 0px;
+  color: var(--color-primary);
+}
+
+p {
+  line-height: 1.5rem;
+  padding: 0;
+  margin: 14px 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}

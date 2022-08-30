@@ -1,0 +1,35 @@
+---
+const { title, id } = Astro.props;
+---
+
+<style>
+  .card {
+    margin-bottom: 3rem;
+    box-sizing: border-box;
+  }
+
+  .card-title {
+    font-size: 50px;
+    font-weight: 600;
+    margin-bottom: 3rem;
+    position: relative;
+    color: var(--color-primary);
+  }
+
+  .card-title:before {
+    content: "";
+    width: 10rem;
+    height: 10px;
+    width: 60px;
+    border-radius: 9999px;
+    position: absolute;
+    bottom: -16px;
+    left: 0px;
+    background-color: var(--color-secondary);
+  }
+</style>
+
+<h2 class="card-title" id={id}>{title}</h2>
+<div class="card">
+  <slot />
+</div>

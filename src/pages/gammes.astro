@@ -1,0 +1,78 @@
+---
+import Card from "../components/Card.astro";
+import Layout from "../components/Layout.astro";
+import ProductCard from "../components/ProductCard.astro";
+---
+
+<style>
+  ul {
+    margin: 8px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 44px;
+  }
+
+  .products {
+    margin-top: 120px;
+  }
+</style>
+
+<Layout title="Notre gamme">
+  <div class="container products">
+    <Card title="Notre gamme">
+      <p>
+        Tous nos produits sont fabriqués à partir d’ingrédients issus de
+        l’agriculture biologique.
+      </p>
+      <p>
+        Ils sont macérés et/ou fermentés dans nos cuves puis distillés dans nos
+        alambics traditionnels en cuivre.
+      </p>
+      <p>
+        Les produits que nous utilisons sont soigneusement sélectionnés, ils
+        sont majoritairement issus de l’agriculture locale et certains sont
+        ramassés par nos soins.
+      </p>
+    </Card>
+  </div>
+  <section class="container">
+    <ul>
+      <ProductCard title="Génépi">
+        Notre liqueur de génépi est lentement infusée dans notre alcool neutre à
+        60°. Ce procédé permet d’en extraire les meilleurs arômes et de les
+        diffuser puissamment. Nous ajoutons à cela une légère quantité de sucre
+        biologique pour que la boisson qui en résulte présente un aspect
+        sirupeux sans être écœurante. L’objectif est avant tout de laisser
+        s’exprimer la typicité des brins de génépi.
+      </ProductCard>
+      <ProductCard title="Vodka">
+        Notre vodka est élaborée à partir de céréales biologiques. Elle a été
+        double distillée pour lui conférer une rondeur en bouche et atténuer ses
+        notes éthyliques. Ses subtils arômes de grain frais s’expriment aussi
+        bien lors de dégustations que dans des cocktails.
+      </ProductCard>
+      <ProductCard title="Esprit de Génépi">
+        Notre esprit de génépi est issu du double processus de macération puis
+        de distillation. Nous laissons infuser lentement nos brins dans notre
+        alcool neutre à 60° puis nous distillons le macérat. Les arômes sont
+        ainsi concentrés et la boisson qui en résulte est tout simplement
+        exceptionnelle par les qualités gustatives qu’elle présente. Elle est
+        non-sucrée pour préserver intactes toutes les saveurs sublimées par la
+        distillation.
+      </ProductCard>
+      <ProductCard title="Gin « Low Fall »">
+        Le Low Fall est un gin extrêmement efficace, élaboré à partir de baies
+        de genièvre et de grains de poivre, il présente un profil aromatique
+        légèrement boisé et épicé ainsi qu’un nez puissant. Il se déguste seul
+        ou en cocktail.
+      </ProductCard>
+      <ProductCard title="Gin « 2G »">
+        Le 2G est notre gin signature. Mis au point à partir de brins de génépi
+        et d’un mélange de baies, de grains et d’aromates, il présente des notes
+        fraîches et épicées à la fois. Le génépi est ici subtilement amené et
+        les saveurs de genièvre restent majoritaires. Il s’agit d’un gin de
+        dégustation par excellence.
+      </ProductCard>
+    </ul>
+  </section>
+</Layout>

@@ -1,0 +1,20 @@
+---
+const { title } = Astro.props;
+---
+
+<style>
+  .title {
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+    font-style: oblique;
+  }
+</style>
+
+<li>
+  <div class="title">
+    {title}
+  </div>
+  <p>
+    <slot />
+  </p>
+</li>
