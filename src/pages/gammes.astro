@@ -1,7 +1,18 @@
 ---
-import Card from "../components/Card.astro";
+import Section from "../components/Section.astro";
 import Layout from "../components/Layout.astro";
 import ProductCard from "../components/ProductCard.astro";
+
+import gammes, { GammeItem } from "../data/gammes";
+
+const byGamme = gammes.reduce((acc, val) => {
+  if (acc[val.type]) {
+    acc[val.type].push(val);
+  } else {
+    acc[val.type] = [val];
+  }
+  return acc;
+}, {} as Record<string, GammeItem[]>);
 ---
 
 <style>
@@ -10,16 +21,27 @@ import ProductCard from "../components/ProductCard.astro";
     display: flex;
     flex-direction: column;
     gap: 44px;
+    list-style: none;
+    padding: 0;
   }
 
   .products {
     margin-top: 120px;
   }
+
+  .category-title {
+    position: sticky;
+    top: 60px;
+    padding-bottom: 22px;
+    padding-top: 22px;
+    background-color: var(--color-background);
+    z-index: 1;
+  }
 </style>
 
 <Layout title="Notre gamme">
-  <div class="container products">
-    <Card title="Notre gamme">
+  <div class="products">
+    <Section title="Notre gamme">
       <p>
         Tous nos produits sont fabriqués à partir d’ingrédients issus de
         l’agriculture biologique.
@@ -33,46 +55,27 @@ import ProductCard from "../components/ProductCard.astro";
         sont majoritairement issus de l’agriculture locale et certains sont
         ramassés par nos soins.
       </p>
-    </Card>
+    </Section>
   </div>
-  <section class="container">
-    <ul>
-      <ProductCard title="Génépi">
-        Notre liqueur de génépi est lentement infusée dans notre alcool neutre à
-        60°. Ce procédé permet d’en extraire les meilleurs arômes et de les
-        diffuser puissamment. Nous ajoutons à cela une légère quantité de sucre
-        biologique pour que la boisson qui en résulte présente un aspect
-        sirupeux sans être écœurante. L’objectif est avant tout de laisser
-        s’exprimer la typicité des brins de génépi.
-      </ProductCard>
-      <ProductCard title="Vodka">
-        Notre vodka est élaborée à partir de céréales biologiques. Elle a été
-        double distillée pour lui conférer une rondeur en bouche et atténuer ses
-        notes éthyliques. Ses subtils arômes de grain frais s’expriment aussi
-        bien lors de dégustations que dans des cocktails.
-      </ProductCard>
-      <ProductCard title="Esprit de Génépi">
-        Notre esprit de génépi est issu du double processus de macération puis
-        de distillation. Nous laissons infuser lentement nos brins dans notre
-        alcool neutre à 60° puis nous distillons le macérat. Les arômes sont
-        ainsi concentrés et la boisson qui en résulte est tout simplement
-        exceptionnelle par les qualités gustatives qu’elle présente. Elle est
-        non-sucrée pour préserver intactes toutes les saveurs sublimées par la
-        distillation.
-      </ProductCard>
-      <ProductCard title="Gin « Low Fall »">
-        Le Low Fall est un gin extrêmement efficace, élaboré à partir de baies
-        de genièvre et de grains de poivre, il présente un profil aromatique
-        légèrement boisé et épicé ainsi qu’un nez puissant. Il se déguste seul
-        ou en cocktail.
-      </ProductCard>
-      <ProductCard title="Gin « 2G »">
-        Le 2G est notre gin signature. Mis au point à partir de brins de génépi
-        et d’un mélange de baies, de grains et d’aromates, il présente des notes
-        fraîches et épicées à la fois. Le génépi est ici subtilement amené et
-        les saveurs de genièvre restent majoritaires. Il s’agit d’un gin de
-        dégustation par excellence.
-      </ProductCard>
-    </ul>
-  </section>
+
+  {
+    Object.entries(byGamme).map(([category, items]) => (
+      <div class="container">
+        <h2 class="category-title" id={category}>
+          {category}
+        </h2>
+        <ul aria-labelledby={category}>
+          {items.map((g) => (
+            <ProductCard
+              title={g.name || g.label}
+              titre={g.titre}
+              volume={g.volume}
+            >
+              {g.description}
+            </ProductCard>
+          ))}
+        </ul>
+      </div>
+    ))
+  }
 </Layout>
