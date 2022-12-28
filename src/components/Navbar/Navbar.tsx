@@ -54,7 +54,9 @@ const Navbar = () => {
   return (
     <nav className={cx(styles.nav, scrolled && styles.scrolled, "container")}>
       <div>
-        <img src="/logo-text.svg" height="50px" alt="L'eau folle logo" />
+        <a aria-label="accueil" href="/">
+          <img src="/logo-text.svg" height="50px" alt="L'eau folle logo" />
+        </a>
         <div>
           {!isMobile && isMobile != null && (
             <ul className={styles.navList}>{content}</ul>
