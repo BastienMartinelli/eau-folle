@@ -42,9 +42,9 @@ const { title, id, margin, ...otherProps } = Astro.props;
 <section class={`section ${margin && "margin-top"}`}>
   {
     title && (
-      <h2 class="section-title" {...otherProps}>
+      <h1 class="section-title" {...otherProps}>
         {title}
-      </h2>
+      </h1>
     )
   }
   <slot />

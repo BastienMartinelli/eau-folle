@@ -4,7 +4,7 @@ import useTimeTransition from "../../utils/useTimeTransition";
 
 import styles from "./Drawer.module.css";
 
-const Drawer = ({ open, onClose, children, className }) => {
+const Drawer = ({ open, onClose, children, className, ...otherProps }) => {
   const show = useTimeTransition(open);
 
   useEffect(() => {
@@ -36,7 +36,8 @@ const Drawer = ({ open, onClose, children, className }) => {
             !open && styles.close
           )}
           onClick={onClose}
-          role="dialogue"
+          role="dialog"
+          {...otherProps}
         >
           {show && (
             <>
