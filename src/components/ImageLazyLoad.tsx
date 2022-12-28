@@ -46,9 +46,7 @@ const ImageLazyLoad = ({
         backgroundImage: `url(${srcToUse})`,
         clipPath: "rect(0)",
       }}
-    >
-      {children}
-    </img>
+    />
   );
 };
 
