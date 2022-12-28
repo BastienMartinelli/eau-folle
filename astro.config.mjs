@@ -8,7 +8,12 @@
 import preact from "@astrojs/preact";
 
 // @ts-check
-export default {
+import { defineConfig } from "astro/config";
+import sitemap from "@astrojs/sitemap";
+
+// https://astro.build/config
+export default defineConfig({
   // Enable the Preact renderer to support Preact JSX components.
-  integrations: [preact()],
-};
+  site: "https://www.eau-folle.com/",
+  integrations: [preact(), sitemap()],
+});
