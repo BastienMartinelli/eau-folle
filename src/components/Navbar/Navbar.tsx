@@ -65,21 +65,26 @@ const Navbar = () => {
             <button
               className={styles.drawerButton}
               onClick={() => setOpen((p) => !p)}
+              aria-label="menu"
             >
-              <span class="material-icons">menu</span>
+              <span aria-hidden="true" class="material-icons">
+                menu
+              </span>
             </button>
           )}
         </div>
-        <Drawer open={open} onClose={() => setOpen(false)}>
+        <Drawer open={open} onClose={() => setOpen(false)} aria-label="menu">
           <ul className={styles.drawerList}>
-            <img
-              src="/logo-text.svg"
-              alt="L'eau folle logo"
-              style={{
-                minWidth: 150,
-                minHeight: 50,
-              }}
-            />
+            <li>
+              <img
+                src="/logo-text.svg"
+                alt="L'eau folle logo"
+                style={{
+                  minWidth: 150,
+                  minHeight: 50,
+                }}
+              />
+            </li>
             {content}
           </ul>
         </Drawer>
