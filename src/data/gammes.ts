@@ -46,19 +46,6 @@ Le résultat après distillation est surprenant : les arômes sont doux, légèr
 notes de pâte d’amande.`,
   },
   {
-    type: "Autre",
-    label: "TàB – Terre à Boire",
-    name: "Apéritif de gentianes sauvages",
-    titre: "20°",
-    volume: "0.7L",
-    description: `La Terre à Boire est la boisson emblématique de la distillerie l’Eau Folle.
-    Fabriquée à partir de racines de gentianes sauvages et d’une sélection de plantes et de fruits macérés
-    dans l’alcool.
-    Elle présente un mélange de saveurs douces, sucrées, raisonnablement amères, florales, subtilement
-    acidulées tirant doucement sur les agrumes.
-    Il s’agit sans conteste de la boisson phare de l’apéritif.`,
-  },
-  {
     type: "Spiritueux",
     label: "Aquavit",
     name: "",
@@ -113,9 +100,9 @@ déguste seul ou en cocktail.`,
     excellence.`,
   },
   {
-    type: "Liqueur",
+    type: "Spiritueux",
     label: "Absinthe",
-    name: "Liqueur d’absinthe sauvage",
+    name: "Absinthe sauvage",
     titre: "72°",
     volume: "0.7L",
     description: `L’absinthe est une boisson emblématique du paysage culturel français du début du siècle passé.
@@ -184,8 +171,8 @@ déguste seul ou en cocktail.`,
     type: "Liqueur",
     label: "Génépi fumé",
     name: "Distillat de génépi fumé",
-    titre: "40°",
-    volume: "0.5L et 0.2L",
+    titre: "44°",
+    volume: "0.7L, 0.5L et 0.2L",
     description: `La boisson typique de nos montagnes en version revisitée par l’Eau Folle.
     Comme son nom l’indique, cet alcool est fumé.
     
@@ -193,6 +180,19 @@ déguste seul ou en cocktail.`,
     mentholées de génépi. Le goût est exceptionnel, très légèrement piquant en ouverture, puis la fumée
     prend le dessus avant de doucement s’atténuer pour laisser place à la puissance du génépi. La
     bouche est intense, longue et offre une excellente persistance.`,
+  },
+  {
+    type: "Autre",
+    label: "TàB – Terre à Boire",
+    name: "Apéritif de gentianes sauvages",
+    titre: "20°",
+    volume: "0.7L",
+    description: `La Terre à Boire est la boisson emblématique de la distillerie l’Eau Folle.
+    Fabriquée à partir de racines de gentianes sauvages et d’une sélection de plantes et de fruits macérés
+    dans l’alcool.
+    Elle présente un mélange de saveurs douces, sucrées, raisonnablement amères, florales, subtilement
+    acidulées tirant doucement sur les agrumes.
+    Il s’agit sans conteste de la boisson phare de l’apéritif.`,
   },
 ];
 
