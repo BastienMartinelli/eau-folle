@@ -12,8 +12,17 @@ import { defineConfig } from "astro/config";
 import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
+import image from "@astrojs/image";
+
+// https://astro.build/config
 export default defineConfig({
   // Enable the Preact renderer to support Preact JSX components.
   site: "https://www.eau-folle.com/",
-  integrations: [preact(), sitemap()],
+  integrations: [
+    preact(),
+    sitemap(),
+    image({
+      serviceEntryPoint: "@astrojs/image/sharp",
+    }),
+  ],
 });

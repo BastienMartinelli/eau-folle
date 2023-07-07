@@ -5,10 +5,13 @@ export type GammeItem = {
   label: string;
   titre: string;
   volume: string;
+  id: string;
+  hide?: boolean;
 };
 
 const data: GammeItem[] = [
   {
+    id: "gentiane",
     type: "Eaux-de-vie",
     label: "Gentiane",
     name: "Eau-de-vie de gentianes sauvages",
@@ -21,6 +24,7 @@ L’alcool obtenu après distillation présente des arômes extrêmement puissan
 ainsi qu’une persistance infinie en bouche caractéristiques de cette fleur de nos montagnes.`,
   },
   {
+    id: "prune",
     type: "Eaux-de-vie",
     label: "Prune",
     name: "Eau-de-vie de prunes sauvage",
@@ -34,11 +38,13 @@ Les arômes sont fruités, frais et gourmands et offrent une bonne longueur en b
     `,
   },
   {
+    id: "sorbier",
     type: "Eaux-de-vie",
     label: "Sorbier",
     name: "Eau-de-vie de sorbier sauvage",
     titre: "43°",
     volume: "0.5L",
+    hide: true,
     description: `Cette eau-de-vie de sorbier sauvages est exceptionnelle par sa rareté et les qualités gustatives
 qu’elle présente.
 Les grappes de petits fruits rouges sont récoltées une à une à la main après les premières gelées.
@@ -46,6 +52,7 @@ Le résultat après distillation est surprenant : les arômes sont doux, légèr
 notes de pâte d’amande.`,
   },
   {
+    id: "aquavit",
     type: "Spiritueux",
     label: "Aquavit",
     name: "",
@@ -57,6 +64,7 @@ notes de pâte d’amande.`,
     Son goût frais et puissant est extrêmement efficace à l’apéritif ou pour accompagner un repas.`,
   },
   {
+    id: "nazare",
     type: "Spiritueux",
     label: "Vodka",
     name: "Na Zare",
@@ -67,6 +75,7 @@ notes de pâte d’amande.`,
     s’expriment aussi bien lors de dégustations que dans des cocktails.`,
   },
   {
+    id: "espritdegenepi",
     type: "Spiritueux",
     name: "Esprit de Génépi",
     label: "",
@@ -79,6 +88,7 @@ notes de pâte d’amande.`,
     sublimées par la distillation.`,
   },
   {
+    id: "lowfall",
     type: "Gin",
     name: "Low Fall",
     label: "",
@@ -89,6 +99,7 @@ poivre, il présente un profil aromatique légèrement boisé et épicé ainsi q
 déguste seul ou en cocktail.`,
   },
   {
+    id: "2g",
     type: "Gin",
     name: "2G",
     label: "",
@@ -100,6 +111,7 @@ déguste seul ou en cocktail.`,
     excellence.`,
   },
   {
+    id: "absinthe",
     type: "Spiritueux",
     label: "Absinthe",
     name: "Absinthe sauvage",
@@ -113,6 +125,7 @@ déguste seul ou en cocktail.`,
     L’absinthe se consomme diluée en apéritif mais peut aussi être bue telle qu’elle ou avec un sucre.`,
   },
   {
+    id: "genepi",
     type: "Liqueur",
     name: "Génépi",
     label: "Génépi",
@@ -124,17 +137,20 @@ déguste seul ou en cocktail.`,
     laisser s’exprimer le caractère des brins de génépi.`,
   },
   {
+    id: "sureau",
     type: "Liqueur",
     label: "Sureau",
     name: "Liqueur de sureau sauvage",
     titre: "35°",
     volume: "0.5L et 0.2L",
+    hide: true,
     description: `La liqueur de sureau est obtenue à partir d’une macération de baies du même nom ramassées à
     maturité.
     Elle présente des notes fruitées avec des touches florales et un goût agréablement acidulé et sucré.
     Elle se déguste aussi bien à l’apéritif qu’en fin de repas.`,
   },
   {
+    id: "hysope",
     type: "Liqueur",
     label: "Hysope",
     name: "Liqueur d’hysope sauvage",
@@ -146,6 +162,7 @@ déguste seul ou en cocktail.`,
    Cette liqueur se déguste parfaitement en fin de repas.`,
   },
   {
+    id: "menthe",
     type: "Liqueur",
     label: "Menthe",
     name: "Apéritif de menthe fraîche",
@@ -157,6 +174,7 @@ déguste seul ou en cocktail.`,
     partir du double processus de macération de feuilles puis de distillation, d’où sa couleur limpide.`,
   },
   {
+    id: "aneth",
     type: "Liqueur",
     label: "Aneth",
     name: "Liqueur d'aneth",
@@ -168,6 +186,7 @@ déguste seul ou en cocktail.`,
     notes sucrées qui viennent arrondir l’ensemble.`,
   },
   {
+    id: "genepifume",
     type: "Liqueur",
     label: "Génépi fumé",
     name: "Distillat de génépi fumé",
@@ -182,6 +201,7 @@ déguste seul ou en cocktail.`,
     bouche est intense, longue et offre une excellente persistance.`,
   },
   {
+    id: "aperitifdegenepi",
     type: "Autre",
     label: "TàB – Terre à Boire",
     name: "Apéritif de gentianes sauvages",

@@ -20,7 +20,7 @@ const byGamme = gammes.reduce((acc, val) => {
     margin: 8px 0;
     display: flex;
     flex-direction: column;
-    gap: 44px;
+    gap: 64px;
     list-style: none;
     padding: 0;
   }
@@ -32,8 +32,8 @@ const byGamme = gammes.reduce((acc, val) => {
   .category-title {
     position: sticky;
     top: 60px;
-    padding-bottom: 22px;
-    padding-top: 22px;
+    padding-bottom: 44px;
+    padding-top: 44px;
     background-color: var(--color-background);
     z-index: 1;
   }
@@ -65,15 +65,18 @@ const byGamme = gammes.reduce((acc, val) => {
           {category}
         </h2>
         <ul aria-labelledby={category}>
-          {items.map((g) => (
-            <ProductCard
-              title={g.name || g.label}
-              titre={g.titre}
-              volume={g.volume}
-            >
-              {g.description}
-            </ProductCard>
-          ))}
+          {items
+            .filter((i) => !i.hide)
+            .map((g) => (
+              <ProductCard
+                title={g.name || g.label}
+                titre={g.titre}
+                volume={g.volume}
+                id={g.id}
+              >
+                {g.description}
+              </ProductCard>
+            ))}
         </ul>
       </div>
     ))
