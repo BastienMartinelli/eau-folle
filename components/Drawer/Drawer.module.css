@@ -1,0 +1,66 @@
+.root {
+  position: fixed;
+  top: 0;
+  left: 0;
+  overlow: hidde;
+  height: 100vh;
+  width: 100vw;
+  z-index: var(--z-index-drawer);
+  --Drawer-overlay_opacity: 0;
+  --Drawer-content_translate: -320px;
+}
+
+.root.open {
+  --Drawer-overlay_opacity: 1;
+}
+
+.overlay {
+  transition: opacity 200ms;
+  background-color: rgba(0, 0, 0, 0.6);
+  opacity: var(--Drawer-overlay_opacity);
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  cursor: pointer;
+}
+
+.content {
+  transition: transform 200ms;
+  width: 320px;
+  max-width: 90%;
+  background-color: var(--color-emphasis);
+  position: absolute;
+  min-height: 100vh;
+  top: 0;
+  left: 0;
+}
+
+.content.open {
+  animation-name: slidein;
+  animation-duration: 250ms;
+}
+
+.content.close {
+  animation-name: slideout;
+  animation-duration: 250ms;
+}
+
+@keyframes slidein {
+  from {
+    transform: translate(-320px);
+  }
+  to {
+    transform: translate(0px);
+  }
+}
+
+@keyframes slideout {
+  from {
+    transform: translate(0);
+  }
+  to {
+    transform: translate(-320px);
+  }
+}
