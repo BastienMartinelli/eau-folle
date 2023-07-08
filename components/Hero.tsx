@@ -23,7 +23,7 @@ export default function Hero({ children }: PropsWithChildren) {
         className="absolute top-0 left-0 w-full h-full border-none"
         alt=""
         aria-hidden="true"
-        objectFit="cover"
+        style={{ objectFit: "cover" }}
         fill
       />
       <div className="hero-overlay absolute top-0 left-0 w-full h-full border-none" />

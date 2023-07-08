@@ -2,7 +2,7 @@ import Container from "./Container";
 
 export function Footer() {
   return (
-    <footer className="bg-gray-100 pt-8">
+    <footer className="bg-gray-100 pt-8 mt-14 grow">
       <Container className="w-full p-4 py-6 lg:py-8">
         <div className="flex justify-center flex-wrap flex-col sm:flex-row gap-12 md:gap-24">
           <div>
