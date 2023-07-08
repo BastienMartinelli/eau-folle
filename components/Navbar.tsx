@@ -16,9 +16,10 @@ function NavLink({
   return (
     <Link
       className={cx(
-        burger &&
-          "block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100",
-        "text-xl md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0"
+        "text-gray-800 text-xl",
+        !burger &&
+          "hover:text-blue-700 p-0 drop-shadow-lg bg-transparent border-0 transition-colors",
+        burger && "block py-2 pl-3 pr-4 rounded hover:bg-gray-100"
       )}
       {...otherProps}
     >
@@ -50,7 +51,7 @@ const Navbar = () => {
   return (
     <nav
       className={cx(
-        scrolled || open ? "bg-gray-50" : "bg-transparent",
+        scrolled || open ? "bg-white shadow-lg" : "bg-transparent",
         "transition-colors sticky top-0 z-10"
       )}
     >
