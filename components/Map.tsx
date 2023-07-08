@@ -1,5 +1,3 @@
-"use client";
-
 export default function Map() {
   const API_KEY = process.env.NEXT_PUBLIC_GOOGLE_API_KEY;
 

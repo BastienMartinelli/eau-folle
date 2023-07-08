@@ -1,5 +1,5 @@
 import ProductCard from "@/components/ProductCard";
-import gammes, { GammeItem } from "../../data/gammes";
+import gammes, { GammeItem } from "@/data/gammes";
 import Container from "@/components/Container";
 import Heading from "@/components/Heading";
 

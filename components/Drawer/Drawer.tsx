@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect } from "react";
-import cx from "../../utils/cx";
-import useTimeTransition from "../../utils/useTimeTransition";
+import cx from "@/utils/cx";
+import useTimeTransition from "@/utils/useTimeTransition";
 
 import styles from "./Drawer.module.css";
 
