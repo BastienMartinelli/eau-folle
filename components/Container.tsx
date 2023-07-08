@@ -1,5 +1,5 @@
 import { PropsWithChildren } from "react";
-import { cx } from "../utils/cx";
+import cx from "@/utils/cx";
 
 export default function Container({
   children,

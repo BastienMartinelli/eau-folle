@@ -1,11 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import cx from "../utils/cx";
+import { useState } from "react";
+import cx from "@/utils/cx";
 import useScrollTrigger from "../utils/useScrollTrigger";
 import Link from "next/link";
 import Image from "next/image";
-import { useRouter, usePathname, useSearchParams } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { pages } from "@/data/pages";
 import Container from "./Container";
 
