@@ -5,21 +5,27 @@ import cx from "../utils/cx";
 import useScrollTrigger from "../utils/useScrollTrigger";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import { pages } from "@/data/pages";
 import Container from "./Container";
 
 function NavLink({
+  current,
   children,
   burger,
   ...otherProps
-}: React.ComponentProps<typeof Link> & { burger?: boolean }) {
+}: React.ComponentProps<typeof Link> & {
+  burger?: boolean;
+  current?: boolean;
+}) {
   return (
     <Link
       className={cx(
-        "text-gray-800 text-xl",
+        "text-gray-600 text-xl",
         !burger &&
-          "hover:text-blue-700 p-0 drop-shadow-lg bg-transparent border-0 transition-colors",
-        burger && "block py-2 pl-3 pr-4 rounded hover:bg-gray-100"
+          "hover:text-primary p-0 bg-transparent border-0 transition-colors",
+        burger && "block py-2 pl-3 pr-4 rounded-md hover:bg-gray-100",
+        current && "font-bold text-primary"
       )}
       {...otherProps}
     >
@@ -30,23 +36,15 @@ function NavLink({
 
 const Navbar = () => {
   const scrolled = useScrollTrigger();
-  const [current, setCurrent] = useState<string>();
   const [open, setOpen] = useState(false);
 
-  useEffect(() => {
-    const currentUrl = window.location.href;
-    setCurrent("home");
-  }, []);
+  const currentPath = usePathname();
 
   const getCurrent = (page: string): any => {
-    return current === page ? { "aria-current": "page" } : {};
+    return currentPath === page
+      ? { "aria-current": "page", current: true }
+      : {};
   };
-
-  const content = pages.map((page) => (
-    <NavLink key={page.link} href={page.link} {...getCurrent(page.link)}>
-      {page.name}
-    </NavLink>
-  ));
 
   return (
     <nav
@@ -66,7 +64,15 @@ const Navbar = () => {
         </a>
         <div className="w-auto">
           <ul className="hidden md:flex font-medium flex-row p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0">
-            {content}
+            {pages.map((page) => (
+              <NavLink
+                key={page.link}
+                href={page.link}
+                {...getCurrent(page.link)}
+              >
+                {page.name}
+              </NavLink>
+            ))}
           </ul>
 
           <button
@@ -86,9 +92,9 @@ const Navbar = () => {
             >
               <path
                 stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
                 d="M1 1h15M1 7h15M1 13h15"
               />
             </svg>
@@ -96,9 +102,18 @@ const Navbar = () => {
         </div>
         {open && (
           <div className="w-full md:hidden" id="navbar-hamburger">
-            <Container>
-              <ul className="flex flex-col font-medium mt-4 p-4">{content}</ul>
-            </Container>
+            <ul className="flex flex-col font-medium mt-8 pb-2 gap-2">
+              {pages.map((page) => (
+                <NavLink
+                  key={page.link}
+                  href={page.link}
+                  burger
+                  {...getCurrent(page.link)}
+                >
+                  {page.name}
+                </NavLink>
+              ))}
+            </ul>
           </div>
         )}
       </Container>

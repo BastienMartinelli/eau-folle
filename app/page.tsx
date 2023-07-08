@@ -2,6 +2,7 @@ import Hero from "@/components/Hero";
 import Map from "@/components/Map";
 import Container from "@/components/Container";
 import Image from "next/image";
+import Heading from "@/components/Heading";
 
 export default function Home() {
   return (
@@ -18,28 +19,28 @@ export default function Home() {
         </div>
       </Hero>
       <Container className="pb-24">
-        <h1 className="text-5xl mb-12">Distillerie de Tarentaise</h1>
-        <p className="mb-6 text-xl">
+        <Heading>Distillerie de Tarentaise</Heading>
+        <p className="mb-6 text-lg">
           {`La Distillerie l'Eau Folle est une jeune distillerie installée dans le
           centre de Moutiers.`}
         </p>
-        <p className="mb-6 text-xl">
+        <p className="mb-6 text-lg">
           {`Nous avons pris la décision de travailler avec des produits locaux,
           que nous ramassons, pour la plupart, par nos soins.`}
         </p>
-        <p className="mb-6 text-xl">
+        <p className="mb-6 text-lg">
           {`Notre gamme est ainsi évolutive mais conserve néanmoins un éventail de
           produits disponibles tout au long de l'année.`}
         </p>
-        <p className="mb-6 text-xl">
+        <p className="mb-6 text-lg">
           {`Nous travaillons dans nos locaux avec des méthodes de fabrication
           traditionnelles et sur des alambics à repasse en cuivre.`}
         </p>
-        <p className="mb-6 text-xl">
+        <p className="mb-6 text-lg">
           {`Les produits que nous proposons sont élaborées à partir de recettes
           que nous avons mises au point et peaufinées.`}
         </p>
-        <p className="mb-20 text-xl">
+        <p className="mb-20 mt-16 text-lg text-center text-gray-500 italic">
           {`Nous sommes disponibles, à l'écoute et joignables pour répondre à
           toutes vos demandes concernant nos produits, leur tarification, leur
           commande et leur livraison ou expédition.`}

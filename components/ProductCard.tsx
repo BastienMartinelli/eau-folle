@@ -16,9 +16,9 @@ export default function ProductCard({
   children,
 }: ProductCardProps) {
   return (
-    <li className="w-full flex gap-8 mb-20 flex-col sm:flex-row rounded-3xl overflow-hidden bg-gray-50">
+    <li className="w-full flex gap-8 mb-20 flex-col md:flex-row rounded-3xl overflow-hidden bg-gray-50 border-2 border-gray-100">
       <div
-        className="overflow-hidden"
+        className="overflow-hidden m-auto md:m-3 rounded-2xl shadow-xl"
         style={{ minWidth: 400, minHeight: 600, maxWidth: 400, maxHeight: 600 }}
       >
         <Image
@@ -30,9 +30,9 @@ export default function ProductCard({
           className="hover:scale-105 transition-transform"
         />
       </div>
-      <div className="flex-grow pt-4 pr-4 pb-4">
+      <div className="flex-grow flex flex-col gap-8 md:pl-0 p-5">
         <div className="text-3xl">{title}</div>
-        <div className="flex gap-4 pt-4 pb-4 text-xl text-gray-600">
+        <div className="flex gap-4 text-xl text-gray-600">
           <span>
             Titrage volumique: <strong>{titre}</strong>
           </span>
