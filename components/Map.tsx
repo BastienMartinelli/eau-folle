@@ -1,8 +1,8 @@
 "use client";
 
-const API_KEY = process.env.GOOGLE_API_KEY;
-
 export default function Map() {
+  const API_KEY = process.env.GOOGLE_API_KEY;
+
   return (
     <iframe
       className="rounded-xl shadow-lg"
