@@ -3,7 +3,7 @@ import { Map } from "@/components/Map";
 import Container from "@/components/Container";
 import Image from "next/image";
 import Heading from "@/components/Heading";
-import { Contact } from "@/sanity/schemas";
+import { Contact } from "@/sanity/types";
 import { client } from "@/sanity/lib/client";
 
 export default async function Home() {
