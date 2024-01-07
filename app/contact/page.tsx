@@ -1,21 +1,25 @@
 import Container from "@/components/Container";
 import Heading from "@/components/Heading";
-import Map from "@/components/Map";
+import { Map } from "@/components/Map";
+import { client } from "@/sanity/lib/client";
+import { Contact } from "@/sanity/schemas";
 
-export default function Contact() {
+export default async function Contact() {
+  const [contact]: Contact[] = await client.fetch("*[_type == 'contact']");
+
   return (
     <Container>
       <Heading>Nous contacter</Heading>
       <ul className="text-xl flex flex-col gap-4 text-gray-700">
         <li>
-          <a href="mailto:">Email: distillerieleaufolle@gmail.com</a>
+          <a href="mailto:">Email: {contact?.email}</a>
         </li>
         <li>
-          <a href="tel:+33 7 48 11 29 37">Téléphone: +33 7 48 11 29 37</a>
+          <a href="tel:+33 7 48 11 29 37">Téléphone: {contact?.phone}</a>
         </li>
       </ul>
       <div className="mt-14 mb-12">
-        <Map />
+        <Map address={contact?.address} />
       </div>
     </Container>
   );
