@@ -1,10 +1,14 @@
 import Hero from "@/components/Hero";
-import Map from "@/components/Map";
+import { Map } from "@/components/Map";
 import Container from "@/components/Container";
 import Image from "next/image";
 import Heading from "@/components/Heading";
+import { Contact } from "@/sanity/schemas";
+import { client } from "@/sanity/lib/client";
 
-export default function Home() {
+export default async function Home() {
+  const [contact] = await client.fetch<Contact[]>(`*[_type == 'contact']`);
+
   return (
     <>
       <Hero>
@@ -45,7 +49,7 @@ export default function Home() {
           toutes vos demandes concernant nos produits, leur tarification, leur
           commande et leur livraison ou expédition.`}
         </p>
-        <Map />
+        <Map address={contact?.address} />
       </Container>
     </>
   );
