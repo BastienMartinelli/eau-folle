@@ -16,17 +16,16 @@ export default function ProductCard({
   children,
 }: ProductCardProps) {
   return (
-    <li className="w-full flex gap-8 mb-20 flex-col md:flex-row rounded-3xl overflow-hidden bg-gray-50 border-2 border-gray-100">
+    <li className="w-full flex gap-8 mb-20 flex-col p-3 md:flex-row rounded-3xl overflow-hidden bg-gray-50 border-2 border-gray-100">
       <div
-        className="overflow-hidden m-auto md:m-3 rounded-2xl shadow-xl"
+        className="overflow-hidden relative m-auto rounded-2xl shadow-xl"
         style={{ minWidth: 400, minHeight: 600, maxWidth: 400, maxHeight: 600 }}
       >
         <Image
           src={`/gamme/${id}.JPG`}
           alt=""
           aria-hidden="true"
-          width={400}
-          height={600}
+          fill
           className="hover:scale-105 transition-transform"
         />
       </div>
