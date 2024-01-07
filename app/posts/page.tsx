@@ -1,5 +1,5 @@
 import { client } from "@/sanity/lib/client";
-import { Post } from "@/sanity/schemas";
+import { Post } from "@/sanity/types";
 import Image from "next/image";
 
 export default async function Posts() {

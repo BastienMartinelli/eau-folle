@@ -2,7 +2,7 @@ import Container from "@/components/Container";
 import Heading from "@/components/Heading";
 import { client } from "@/sanity/lib/client";
 import { urlForImage } from "@/sanity/lib/image";
-import { Pages } from "@/sanity/schemas";
+import { Pages } from "@/sanity/types";
 import { PortableText } from "@portabletext/react";
 import Image from "next/image";
 

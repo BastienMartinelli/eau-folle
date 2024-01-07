@@ -2,7 +2,7 @@ import Container from "@/components/Container";
 import Heading from "@/components/Heading";
 import { Map } from "@/components/Map";
 import { client } from "@/sanity/lib/client";
-import { Contact } from "@/sanity/schemas";
+import { Contact } from "@/sanity/types";
 
 export default async function Contact() {
   const [contact]: Contact[] = await client.fetch("*[_type == 'contact']");

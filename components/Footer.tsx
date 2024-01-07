@@ -1,6 +1,6 @@
 import { client } from "@/sanity/lib/client";
 import Container from "./Container";
-import { Contact } from "@/sanity/schemas";
+import { Contact } from "@/sanity/types";
 
 const currentYear = new Date().getFullYear();
 
