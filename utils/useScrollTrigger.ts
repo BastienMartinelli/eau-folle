@@ -10,12 +10,7 @@ function useScrollTrigger() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const currentScroll = isScrolled();
-      if (currentScroll && !scrolled) {
-        setScrolled(true);
-      } else if (!currentScroll && scrolled) {
-        setScrolled(false);
-      }
+      setScrolled(isScrolled());
     };
 
     window.addEventListener("scroll", handleScroll, {
