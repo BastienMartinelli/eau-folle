@@ -4,8 +4,8 @@ import { PropsWithChildren } from "react";
 export default function Hero({ children }: PropsWithChildren) {
   return (
     <section
-      className="m-auto md:h-screen relative -mt-28 mb-20"
-      style={{ maxHeight: 920 }}
+      className="m-auto md:h-screen relative mb-40"
+      style={{ minHeight: "min-contents" }}
     >
       <style>
         {`
@@ -20,10 +20,9 @@ export default function Hero({ children }: PropsWithChildren) {
       </style>
       <Image
         src="/hero.webp"
-        className="absolute top-0 left-0 w-full h-full border-none"
+        className="absolute top-0 left-0 w-full h-full border-none object-cover"
         alt=""
         aria-hidden="true"
-        style={{ objectFit: "cover" }}
         fill
       />
       <div className="hero-overlay absolute top-0 left-0 w-full h-full border-none" />
