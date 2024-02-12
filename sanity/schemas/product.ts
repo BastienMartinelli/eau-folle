@@ -9,6 +9,7 @@ export default defineType({
       name: "categorty",
       title: "Categorie",
       type: "string",
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "slug",
@@ -23,6 +24,7 @@ export default defineType({
       name: "name",
       title: "Name",
       type: "string",
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "mainImage",
@@ -31,11 +33,13 @@ export default defineType({
       options: {
         hotspot: true,
       },
+      validation: (Rule) => Rule.required(),
       fields: [
         {
           name: "alt",
           type: "string",
           title: "Alternative Text",
+          validation: (Rule) => Rule.required(),
         },
       ],
     }),
@@ -43,11 +47,13 @@ export default defineType({
       name: "strength",
       title: "Titrage",
       type: "number",
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "volume",
       title: "Volume",
       type: "array",
+      validation: (Rule) => Rule.required(),
       of: [
         {
           type: "number",
@@ -58,9 +64,9 @@ export default defineType({
       name: "description",
       title: "Description",
       type: "blockContent",
+      validation: (Rule) => Rule.required(),
     }),
   ],
-
   preview: {
     select: {
       title: "title",

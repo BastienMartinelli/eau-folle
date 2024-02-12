@@ -2,23 +2,36 @@ import ProductCard from "@/components/ProductCard";
 import gammes, { GammeItem } from "@/data/gammes";
 import Container from "@/components/Container";
 import Heading from "@/components/Heading";
+import { Pages, Product } from "@/sanity/types";
+import { client } from "@/sanity/lib/client";
+import { PageContent } from "@/components/PageContent";
 
-const byGamme = gammes.reduce((acc, val) => {
-  if (acc[val.type]) {
-    acc[val.type].push(val);
-  } else {
-    acc[val.type] = [val];
-  }
-  return acc;
-}, {} as Record<string, GammeItem[]>);
+export default async function Gamme() {
+  const [page] = await client.fetch<Pages[]>(
+    "*[_type == 'pages' && name == 'gamme'] "
+  );
+  const products = await client.fetch<Product[]>("*[_type == 'product']");
 
-export default function Gamme() {
+  const byGamme = products.reduce(
+    (acc, val) => {
+      const category = val.categorty ?? "";
+      if (acc[category]) {
+        acc[category].push(val);
+      } else {
+        acc[category] = [val];
+      }
+      return acc;
+    },
+    {} as Record<string, Product[]>
+  );
+
   return (
     <Container>
-      <Heading>Notre gamme</Heading>
-      <p className="mb-4 text-lg">{`Tous nos produits sont fabriqués à partir d'ingrédients issus de l'agriculture biologique.`}</p>
-      <p className="mb-4 text-lg">{`Ils sont macérés et/ou fermentés dans nos cuves puis distillés dans nos alambics traditionnels en cuivre.`}</p>
-      <p className="mb-16 text-lg">{`Les produits que nous utilisons sont soigneusement sélectionnés, ils sont majoritairement issus de l'agriculture locale et certains sont ramassés par nos soins.`}</p>
+      <Heading>{page.title}</Heading>
+      <div className="mb-16 text-lg">
+        <PageContent>{page.content}</PageContent>
+      </div>
+      <br />
 
       {Object.entries(byGamme).map(([category, items]) => (
         <div key={category}>
@@ -29,19 +42,17 @@ export default function Gamme() {
             {category}
           </h2>
           <ul aria-labelledby={category}>
-            {items
-              .filter((i) => !i.hide)
-              .map((g) => (
-                <ProductCard
-                  key={g.id}
-                  title={g.name || g.label}
-                  titre={g.titre}
-                  volume={g.volume}
-                  id={g.id}
-                >
-                  {g.description}
-                </ProductCard>
-              ))}
+            {items.map((product) => (
+              <ProductCard
+                key={product._id}
+                name={product.name}
+                volume={product.volume}
+                strength={product.strength}
+                mainImage={product.mainImage}
+              >
+                {product.description}
+              </ProductCard>
+            ))}
           </ul>
         </div>
       ))}

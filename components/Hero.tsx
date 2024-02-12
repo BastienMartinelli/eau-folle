@@ -3,10 +3,7 @@ import { PropsWithChildren } from "react";
 
 export default function Hero({ children }: PropsWithChildren) {
   return (
-    <section
-      className="m-auto md:h-screen relative mb-40"
-      style={{ minHeight: "min-contents" }}
-    >
+    <section className="m-auto md:h-screen relative mb-40">
       <style>
         {`
           .hero-overlay {
