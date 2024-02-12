@@ -18,7 +18,7 @@ export default async function Home() {
             alt="L'eau folle logo"
             width={700}
             height={700}
-            className="m-auto drop-shadow-xl"
+            className=" md:h-screen m-auto drop-shadow-xl"
           />
         </div>
       </Hero>
