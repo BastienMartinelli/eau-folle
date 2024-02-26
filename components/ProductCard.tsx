@@ -18,10 +18,10 @@ export default function ProductCard({
   mainImage,
 }: ProductCardProps) {
   return (
-    <li className="w-full flex gap-8 mb-20 flex-col p-3 md:flex-row rounded-3xl overflow-hidden bg-gray-50 border-2 border-gray-100">
+    <li className="w-full flex gap-8 mb-20 flex-col md:flex-row rounded-3xl overflow-hidden border-1 border-gray-50 shadow-2xl">
       <div
-        className="overflow-hidden relative m-auto rounded-2xl shadow-xl"
-        style={{ minWidth: 400, minHeight: 600, maxWidth: 400, maxHeight: 600 }}
+        className="overflow-hidden relative m-auto shadow-xl"
+        style={{ aspectRatio: "9/16", minWidth: 400, maxWidth: 400 }}
       >
         {mainImage && (
           <Image
@@ -35,19 +35,15 @@ export default function ProductCard({
       </div>
       <div className="flex-grow flex flex-col gap-8 md:pl-0 p-5">
         <div className="text-3xl">{name}</div>
-        <div className="flex gap-4 text-xl text-gray-600">
+        <div className="flex flex-wrap gap-4 text-xl text-gray-600">
           <span>
             Titrage volumique: <strong>{strength}°</strong>
           </span>
           <span>
-            Volume: <strong>{volume?.join(", ")}</strong>
+            Volume: <strong>{volume?.map((v) => `${v}L`)?.join(", ")}</strong>
           </span>
         </div>
-        {children && (
-          <p className="text-lg text-gray-600">
-            <PortableText value={children} />
-          </p>
-        )}
+        {children && <PortableText value={children} />}
       </div>
     </li>
   );
