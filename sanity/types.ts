@@ -108,25 +108,25 @@ export interface Product extends SanityDocument {
   _type: "product";
 
   /**
-   * Categorie — `string`
+   * Name — `string`
    *
    *
    */
-  categorty?: string;
+  name?: string;
 
   /**
-   * Slug — `slug`
+   * Slug (dans l'url) — `slug`
    *
    *
    */
   slug?: { _type: "slug"; current: string };
 
   /**
-   * Name — `string`
+   * Categorie — `string`
    *
    *
    */
-  name?: string;
+  categorty?: string;
 
   /**
    * Image Principale — `image`
@@ -208,25 +208,25 @@ export interface Pages extends SanityDocument {
   _type: "pages";
 
   /**
-   * Titre — `string`
+   * Nom (dans l'url) — `string`
+   *
+   *
+   */
+  name?: string;
+
+  /**
+   * Titre de la page (visible sur la page) — `string`
    *
    *
    */
   title?: string;
 
   /**
-   * Contenue — `blockContent`
+   * Contenu — `blockContent`
    *
    *
    */
   content?: BlockContent;
-
-  /**
-   * Nom de la page — `string`
-   *
-   *
-   */
-  name?: string;
 }
 
 export type BlockContent = Array<

@@ -11,17 +11,7 @@ export default async function Home() {
 
   return (
     <>
-      <Hero>
-        <div className="max-w-screen-xl mx-auto p-4 flex justify-center w-full">
-          <Image
-            src="/logo.svg"
-            alt="L'eau folle logo"
-            width={700}
-            height={700}
-            className=" md:h-screen m-auto drop-shadow-xl"
-          />
-        </div>
-      </Hero>
+      <Hero />
       <Container className="pb-24">
         <Heading>Distillerie de Tarentaise</Heading>
         <p className="mb-6 text-lg">

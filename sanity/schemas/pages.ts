@@ -6,19 +6,19 @@ export default defineType({
   type: "document",
   fields: [
     defineField({
+      name: "name",
+      title: "Nom (dans l'url)",
+      type: "string",
+    }),
+    defineField({
       name: "title",
-      title: "Titre",
+      title: "Titre de la page (visible sur la page)",
       type: "string",
     }),
     defineField({
       name: "content",
-      title: "Contenue",
+      title: "Contenu",
       type: "blockContent",
-    }),
-    defineField({
-      name: "name",
-      title: "Nom de la page",
-      type: "string",
     }),
   ],
 });
