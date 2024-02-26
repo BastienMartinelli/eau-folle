@@ -46,14 +46,17 @@ const Navbar = () => {
       : {};
   };
 
+  const isHomePage = currentPath === "/";
+
   return (
     <nav
       className={cx(
         scrolled || open ? "bg-white shadow-lg" : "bg-transparent",
-        "transition-colors sticky top-0 z-10"
+        "transition-colors w-full top-0 z-50",
+        isHomePage ? "fixed" : "sticky"
       )}
     >
-      <Container className="flex-row flex flex-wrap items-center justify-between p-4">
+      <Container className="flex-row flex flex-wrap items-center justify-between ">
         <a className="flex items-center" aria-label="accueil" href="/">
           <Image
             src="/logo-text.svg"
@@ -63,7 +66,7 @@ const Navbar = () => {
           />
         </a>
         <div className="w-auto">
-          <ul className="hidden md:flex font-medium flex-row p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0">
+          <ul className="hidden md:flex font-medium flex-row md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0">
             {pages.map((page) => (
               <NavLink
                 key={page.link}

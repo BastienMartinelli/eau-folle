@@ -6,23 +6,23 @@ export default defineType({
   type: "document",
   fields: [
     defineField({
-      name: "categorty",
-      title: "Categorie",
+      name: "name",
+      title: "Name",
       type: "string",
       validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "slug",
-      title: "Slug",
+      title: "Slug (dans l'url)",
       type: "slug",
       options: {
-        source: "title",
+        source: "name",
         maxLength: 96,
       },
     }),
     defineField({
-      name: "name",
-      title: "Name",
+      name: "categorty",
+      title: "Categorie",
       type: "string",
       validation: (Rule) => Rule.required(),
     }),
@@ -69,7 +69,7 @@ export default defineType({
   ],
   preview: {
     select: {
-      title: "title",
+      title: "name",
       media: "mainImage",
     },
     prepare(selection) {
