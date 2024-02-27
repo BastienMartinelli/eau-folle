@@ -6,9 +6,16 @@ const imgs = Array(5)
 
 export default function Hero() {
   return (
-    <section className="flex relative m-auto h-screen max-h-full w-screen max-w-full overflow-hidden">
+    <section className="container flex relative m-auto w-screen max-w-full overflow-hidden">
       <style>
         {`
+
+          .container {
+            --max-logo-size: 700px;
+
+            height: min(900px, 100vh);
+          }
+
           .hero-overlay {
             background: linear-gradient(
               rgba(255, 255, 255, 0.2),
@@ -18,8 +25,8 @@ export default function Hero() {
           }
 
           .img-container {
-            height: 700px;
-            width: 700px;
+            height: var(--max-logo-size);
+            width: var(--max-logo-size);
             max-width: 100%;
             max-height: 100%;
           }
@@ -30,7 +37,8 @@ export default function Hero() {
           }
 
           .cloud {
-            animation: cloudAnimation calc(30s + calc(var(--i) * 10s)) linear infinite;
+            animation: cloudAnimation calc(60s + calc(var(--i) * 10s)) linear infinite;
+            animation-delay: -20s;
           }
 
           @keyframes cloudAnimation {
