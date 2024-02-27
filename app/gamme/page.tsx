@@ -30,7 +30,7 @@ export default async function Gamme() {
       .product-list {
         display: grid;
         gap: 54px;
-        grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(340px, 500px));
       }
     `}</style>
       <Container>

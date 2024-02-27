@@ -37,7 +37,6 @@ function NavLink({
 const Navbar = () => {
   const scrolled = useScrollTrigger();
   const [open, setOpen] = useState(false);
-
   const currentPath = usePathname();
 
   const getCurrent = (page: string): any => {
@@ -50,14 +49,13 @@ const Navbar = () => {
 
   return (
     <>
-      {!isHomePage && <div className="w-full h-24 sticky top-0" />}
       <nav
         className={cx(
           scrolled || open ? "bg-white shadow-lg" : "bg-transparent",
           "fixed transition-colors w-full top-0 z-50"
         )}
       >
-        <div className="flex-row flex flex-wrap items-center justify-between h-24 max-w-screen-xl mx-auto px-4 md:px-8">
+        <div className="flex flex-row flex-wrap items-center justify-between max-w-screen-xl mx-auto p-4 md:px-8">
           <a className="flex items-center" aria-label="accueil" href="/">
             <Image
               src="/logo-text.svg"
@@ -122,6 +120,7 @@ const Navbar = () => {
           )}
         </div>
       </nav>
+      {!isHomePage && <div className="nav w-full sticky top-0 h-24" />}
     </>
   );
 };

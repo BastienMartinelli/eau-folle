@@ -38,7 +38,6 @@ export default function Hero() {
 
           .cloud {
             animation: cloudAnimation calc(60s + calc(var(--i) * 10s)) linear infinite;
-            animation-delay: -20s;
           }
 
           @keyframes cloudAnimation {
