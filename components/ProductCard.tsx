@@ -18,24 +18,23 @@ export default function ProductCard({
   mainImage,
 }: ProductCardProps) {
   return (
-    <li className="w-full flex gap-8 mb-20 flex-col md:flex-row rounded-3xl overflow-hidden border-1 border-gray-50 shadow-2xl">
+    <li className="rounded-3xl shadow-2xl flex flex-col">
       <div
-        className="overflow-hidden relative m-auto shadow-xl"
-        style={{ aspectRatio: "9/16", minWidth: 400, maxWidth: 400 }}
+        style={{ width: "100%", aspectRatio: "9/15" }}
+        className="relative w-full flex flex-col md:flex-row rounded-3xl overflow-hidden border-1 shadow-2xl hover:scale-105 transition-transform"
       >
         {mainImage && (
-          <Image
-            src={urlForImage(mainImage)}
-            alt=""
-            aria-hidden="true"
-            fill
-            className="hover:scale-105 transition-transform"
-          />
+          <Image src={urlForImage(mainImage)} alt="" aria-hidden="true" fill />
         )}
       </div>
-      <div className="flex-grow flex flex-col gap-8 md:pl-0 p-5">
-        <div className="text-3xl">{name}</div>
-        <div className="flex flex-wrap gap-4 text-xl text-gray-600">
+      <div className="mt-2 gap-6 px-6 py-7 flex flex-col flex-grow">
+        <div className="text-2xl relative flex gap-2">
+          <div className="w-1 h-full bg-secondary-700 rounded-full" />
+          {name}
+        </div>
+        {children && <PortableText value={children} />}
+        <div className="flex-grow" />
+        <div className="flex flex-wrap gap-2 text-xl text-gray-600">
           <span>
             Titrage volumique: <strong>{strength}°</strong>
           </span>
@@ -43,7 +42,6 @@ export default function ProductCard({
             Volume: <strong>{volume?.map((v) => `${v}L`)?.join(", ")}</strong>
           </span>
         </div>
-        {children && <PortableText value={children} />}
       </div>
     </li>
   );
