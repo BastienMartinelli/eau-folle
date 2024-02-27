@@ -20,7 +20,7 @@ export default async function Home() {
         <div className="text-lg home-content flex flex-col gap-3">
           <PageContent>{page.content}</PageContent>
         </div>
-        <div className="flex justify-center mb-20">
+        <div className="flex justify-center mb-18">
           <a
             href="/gamme"
             className="py-4 px-7 my-20 m-auto bg-primary-700 hover:bg-primary-600 rounded-xl text-white"
