@@ -4,6 +4,7 @@ export default function Heading({
   as,
   children,
   className,
+  ...otherProps
 }: React.ComponentProps<"h1"> & { as?: string }) {
   const Element = as || ("h1" as any);
   return (
@@ -12,6 +13,7 @@ export default function Heading({
         "text-5xl font-bold tracking-tight mb-10 text-primary",
         className
       )}
+      {...otherProps}
     >
       {children}
     </Element>

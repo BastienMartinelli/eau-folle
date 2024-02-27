@@ -34,7 +34,7 @@ export default async function Home() {
           {`Les produits que nous proposons sont élaborées à partir de recettes
           que nous avons mises au point et peaufinées.`}
         </p>
-        <p className="mb-20 mt-16 text-lg text-center text-gray-500 italic">
+        <p className="mb-20 mt-16 text-lg italic">
           {`Nous sommes disponibles, à l'écoute et joignables pour répondre à
           toutes vos demandes concernant nos produits, leur tarification, leur
           commande et leur livraison ou expédition.`}
