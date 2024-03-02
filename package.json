@@ -25,6 +25,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "sanity": "^3.23.4",
+    "sanity-plugin-vercel-deploy": "^3.3.4",
     "sharp": "^0.32.1",
     "styled-components": "^6.1.6",
     "tailwindcss": "3.3.2",
