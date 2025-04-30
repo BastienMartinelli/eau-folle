@@ -17,6 +17,8 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  return <h1>En maintenance...</h1>;
+
   return (
     <html lang="fr" className="scroll-smooth">
       <body className={cx(inter.className, "flex flex-col min-h-screen")}>
