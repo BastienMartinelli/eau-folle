@@ -1,8 +1,9 @@
+import { withMaintenance } from "@/components/Maintainance";
 import { client } from "@/sanity/lib/client";
 import { Post } from "@/sanity/types";
 import Image from "next/image";
 
-export default async function Posts() {
+async function Posts() {
   const posts: Post[] = await client.fetch("*[_type == 'post']");
 
   return (
@@ -33,3 +34,5 @@ export default async function Posts() {
     </>
   );
 }
+
+export default withMaintenance(Posts, "posts");

@@ -5,8 +5,9 @@ import Heading from "@/components/Heading";
 import { Contact, Pages } from "@/sanity/types";
 import { client } from "@/sanity/lib/client";
 import { PageContent } from "@/components/PageContent";
+import { withMaintenance } from "@/components/Maintainance";
 
-export default async function Home() {
+async function Home() {
   const [contact] = await client.fetch<Contact[]>(`*[_type == 'contact']`);
   const [page] = await client.fetch<Pages[]>(
     "*[_type == 'pages' && name == 'home'] "
@@ -33,3 +34,5 @@ export default async function Home() {
     </>
   );
 }
+
+export default withMaintenance(Home, "home");

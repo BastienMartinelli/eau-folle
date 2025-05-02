@@ -1,10 +1,11 @@
 import Container from "@/components/Container";
 import Heading from "@/components/Heading";
+import { withMaintenance } from "@/components/Maintainance";
 import { Map } from "@/components/Map";
 import { client } from "@/sanity/lib/client";
 import { Contact } from "@/sanity/types";
 
-export default async function Contact() {
+async function ContactPage() {
   const [contact]: Contact[] = await client.fetch("*[_type == 'contact']");
 
   return (
@@ -24,3 +25,5 @@ export default async function Contact() {
     </Container>
   );
 }
+
+export default withMaintenance(ContactPage, "contact");

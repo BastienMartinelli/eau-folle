@@ -4,25 +4,23 @@ import Heading from "@/components/Heading";
 import { Pages, Product } from "@/sanity/types";
 import { client } from "@/sanity/lib/client";
 import { PageContent } from "@/components/PageContent";
+import { withMaintenance } from "@/components/Maintainance";
 
-export default async function Gamme() {
+async function Gamme() {
   const [page] = await client.fetch<Pages[]>(
     "*[_type == 'pages' && name == 'gamme'] "
   );
   const products = await client.fetch<Product[]>("*[_type == 'product']");
 
-  const byGamme = products.reduce(
-    (acc, val) => {
-      const category = val.categorty ?? "";
-      if (acc[category]) {
-        acc[category].push(val);
-      } else {
-        acc[category] = [val];
-      }
-      return acc;
-    },
-    {} as Record<string, Product[]>
-  );
+  const byGamme = products.reduce((acc, val) => {
+    const category = val.categorty ?? "";
+    if (acc[category]) {
+      acc[category].push(val);
+    } else {
+      acc[category] = [val];
+    }
+    return acc;
+  }, {} as Record<string, Product[]>);
 
   return (
     <>
@@ -65,3 +63,5 @@ export default async function Gamme() {
     </>
   );
 }
+
+export default withMaintenance(Gamme, "gamme");

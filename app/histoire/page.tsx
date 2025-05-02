@@ -1,10 +1,11 @@
 import Container from "@/components/Container";
 import Heading from "@/components/Heading";
+import { withMaintenance } from "@/components/Maintainance";
 import { PageContent } from "@/components/PageContent";
 import { client } from "@/sanity/lib/client";
 import { Pages } from "@/sanity/types";
 
-export default async function Histoire() {
+async function Histoire() {
   const [page] = await client.fetch<Pages[]>(
     "*[_type == 'pages' && name == 'histoire'] "
   );
@@ -18,3 +19,5 @@ export default async function Histoire() {
     </Container>
   );
 }
+
+export default withMaintenance(Histoire, "histoire");

@@ -7,7 +7,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { pages } from "@/data/pages";
-import Container from "./Container";
+import { isMaintenance } from "@/utils/isMaintenance";
 
 function NavLink({
   current,
@@ -45,7 +45,7 @@ const Navbar = () => {
       : {};
   };
 
-  const isHomePage = currentPath === "/";
+  const isHomePage = currentPath === "/" && !isMaintenance("home");
 
   return (
     <>
