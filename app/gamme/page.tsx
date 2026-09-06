@@ -20,7 +20,7 @@ async function Gamme({ searchParams }: GammeProps) {
     (await client.fetch<Product[]>("*[_type == 'product']")) ?? [];
 
   const byGamme = products.reduce((acc, val) => {
-    const category = val.categorty ?? "";
+    const category = val.category ?? "";
     if (acc[category]) {
       acc[category].push(val);
     } else {
