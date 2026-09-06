@@ -6,6 +6,7 @@ import { Contact, Pages } from "@/sanity/types";
 import { client } from "@/sanity/lib/client";
 import { PageContent } from "@/components/PageContent";
 import { withMaintenance } from "@/components/Maintainance";
+import Button from "@/components/Button";
 
 async function Home() {
   const [contact] = await client.fetch<Contact[]>(`*[_type == 'contact']`);
@@ -22,12 +23,9 @@ async function Home() {
           <PageContent>{page?.content}</PageContent>
         </div>
         <div className="flex justify-center mb-18">
-          <a
-            href="/gamme"
-            className="py-2 px-4 my-20 m-auto text-lg bg-primary-700 hover:bg-primary-600 rounded-xl text-white"
-          >
+          <Button as="a" href="/gamme" className="my-20">
             Découvrir notre gamme
-          </a>
+          </Button>
         </div>
         <Map address={contact?.address} />
       </Container>
