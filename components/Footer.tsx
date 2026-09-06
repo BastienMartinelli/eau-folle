@@ -1,6 +1,7 @@
 import { client } from "@/sanity/lib/client";
 import Container from "./Container";
 import { Contact } from "@/sanity/types";
+import { shopUrl } from "@/data/pages";
 
 const currentYear = new Date().getFullYear();
 
@@ -30,6 +31,23 @@ export async function Footer() {
             <div className="text-md text-gray-500 font-medium flex flex-col gap-2">
               <a href="mailto:">Email: {contact?.email}</a>
               <a href="tel:+33 7 48 11 29 37">Tel: {contact?.phone}</a>
+            </div>
+          </div>
+
+          <div>
+            <h2 className="mb-6 text-lg font-semibold text-gray-900 uppercase">
+              Où acheter
+            </h2>
+            <div className="text-md text-gray-500 font-medium flex flex-col gap-2">
+              <a
+                href={shopUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-primary transition-colors"
+              >
+                Commander en ligne
+              </a>
+              <div>En boutique et sur les marchés de Tarentaise</div>
             </div>
           </div>
         </div>
