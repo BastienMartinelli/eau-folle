@@ -5,6 +5,7 @@ import cx from "@/utils/cx";
 import useScrollTrigger from "../utils/useScrollTrigger";
 import Link from "next/link";
 import Image from "next/image";
+import Button from "./Button";
 import { usePathname } from "next/navigation";
 import { pages, shopUrl } from "@/data/pages";
 import { isMaintenance } from "@/utils/isMaintenance";
@@ -25,7 +26,7 @@ function NavLink({
         !burger &&
           "hover:text-primary p-0 bg-transparent border-0 transition-colors",
         burger && "block py-2 pl-3 pr-4 rounded-md hover:bg-gray-100",
-        current && "font-bold text-primary"
+        current && "font-bold text-primary",
       )}
       {...otherProps}
     >
@@ -52,7 +53,7 @@ const Navbar = () => {
       <nav
         className={cx(
           scrolled || open ? "bg-white shadow-lg" : "bg-transparent",
-          "fixed transition-colors w-full top-0 z-50"
+          "fixed transition-colors w-full top-0 z-50",
         )}
       >
         <div className="flex flex-row flex-wrap items-center justify-between max-w-screen-xl mx-auto p-4 md:px-8">
@@ -75,14 +76,15 @@ const Navbar = () => {
               ))}
             </ul>
 
-            <a
+            <Button
+              as="a"
               href={shopUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block md:ml-8 py-1.5 px-3 text-sm md:py-2 md:px-4 md:text-lg font-medium bg-primary hover:bg-primary-700 rounded-xl text-white transition-colors whitespace-nowrap"
+              className="md:ml-8"
             >
-              Boutique en ligne
-            </a>
+              Commander en ligne
+            </Button>
 
             <button
               type="button"
