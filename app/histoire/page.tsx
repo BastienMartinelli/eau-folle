@@ -15,7 +15,7 @@ async function Histoire() {
 
   return (
     <Container className="text-lg">
-      <Breadcrumb label={title} />
+      <Breadcrumb items={[{ label: title }]} />
       <Heading>{title}</Heading>
       <div className="flex flex-col gap-8">
         <PageContent>{page?.content}</PageContent>

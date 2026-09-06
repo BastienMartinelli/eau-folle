@@ -49,7 +49,7 @@ async function Gamme({ searchParams }: GammeProps) {
       }
     `}</style>
       <Container>
-        <Breadcrumb label={title} />
+        <Breadcrumb items={[{ label: title }]} />
         <Heading>{title}</Heading>
         <div className="mb-8 text-lg">
           <PageContent>{page?.content}</PageContent>
@@ -82,6 +82,7 @@ async function Gamme({ searchParams }: GammeProps) {
                   strength={product.strength}
                   mainImage={product.mainImage}
                   link={product.link}
+                  slug={product.slug}
                 >
                   {product.description}
                 </ProductCard>
