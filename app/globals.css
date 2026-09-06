@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  /* diffuse light halo to keep text legible over the top background image */
+  .text-contour {
+    text-shadow: 0 0 12px rgba(255, 255, 255, 0.6),
+      0 0 16px rgba(255, 255, 255, 0.5);
+  }
+}

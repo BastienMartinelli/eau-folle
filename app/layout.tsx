@@ -3,6 +3,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Footer } from "@/components/Footer";
+import PageBackdrop from "@/components/PageBackdrop";
 import cx from "@/utils/cx";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -24,7 +25,9 @@ export default function RootLayout({
     <html lang="fr" className="scroll-smooth">
       <body className={cx(inter.className, "flex flex-col min-h-screen")}>
         <Navbar />
-        <main>{children}</main>
+        <main className="relative">
+          <PageBackdrop>{children}</PageBackdrop>
+        </main>
         <Footer />
       </body>
     </html>

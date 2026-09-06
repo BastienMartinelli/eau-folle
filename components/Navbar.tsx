@@ -22,7 +22,7 @@ function NavLink({
   return (
     <Link
       className={cx(
-        "text-gray-600 text-xl",
+        "text-gray-800 text-xl",
         !burger &&
           "hover:text-primary p-0 bg-transparent border-0 transition-colors",
         burger && "block py-2 pl-3 pr-4 rounded-md hover:bg-gray-100",
@@ -66,7 +66,12 @@ const Navbar = () => {
             />
           </a>
           <div className="w-auto flex items-center">
-            <ul className="hidden md:flex font-medium flex-row md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0">
+            <ul
+              className={cx(
+                "hidden md:flex font-medium flex-row md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0",
+                !scrolled && !open && "text-contour",
+              )}
+            >
               {pages.map((page) => (
                 <li key={page.link}>
                   <NavLink href={page.link} {...getCurrent(page.link)}>

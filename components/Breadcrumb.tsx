@@ -17,7 +17,7 @@ export default function Breadcrumb({
   return (
     <nav
       aria-label="Fil d'Ariane"
-      className={cx("mb-4 text-sm text-gray-500", className)}
+      className={cx("mb-4 text-sm text-gray-700 text-contour", className)}
     >
       <ol className="flex flex-wrap items-center gap-2">
         {crumbs.map((crumb, index) => {

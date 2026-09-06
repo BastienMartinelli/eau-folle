@@ -18,7 +18,11 @@ export default function Hero() {
 
           .hero-overlay {
             background: linear-gradient(
-              rgba(255, 255, 255, 0.2),
+              /* same white veil as PageBackdrop over the top of the page so
+                 the dark navbar text stays legible against the hero image */
+              rgba(255, 255, 255, 0.6) 0%,
+              rgba(255, 255, 255, 0.55) 15%,
+              rgba(255, 255, 255, 0.45) 30%,
               rgba(255, 255, 255, 1) 95%
             );
             transform: scaleY(1.1);
