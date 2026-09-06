@@ -38,6 +38,7 @@ export default function Hero() {
 
           .cloud {
             animation: cloudAnimation calc(60s + calc(var(--i) * 10s)) linear infinite;
+            animation-delay: -15s;
           }
 
           @keyframes cloudAnimation {
@@ -77,7 +78,7 @@ export default function Hero() {
             layout="fill"
             className="cloud"
             style={
-              { "--i": i, zIndex: i % 2 === 0 ? 5 : 15 } as React.CSSProperties
+              { "--i": i, zIndex: i === 2 ? 15 : 5 } as React.CSSProperties
             }
           />
         ))}
