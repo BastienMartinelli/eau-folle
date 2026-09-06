@@ -6,7 +6,7 @@ import useScrollTrigger from "../utils/useScrollTrigger";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { pages } from "@/data/pages";
+import { pages, shopUrl } from "@/data/pages";
 import { isMaintenance } from "@/utils/isMaintenance";
 
 function NavLink({
@@ -64,7 +64,7 @@ const Navbar = () => {
               alt="L'eau folle logo"
             />
           </a>
-          <div className="w-auto">
+          <div className="w-auto flex items-center">
             <ul className="hidden md:flex font-medium flex-row md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0">
               {pages.map((page) => (
                 <li key={page.link}>
@@ -74,6 +74,15 @@ const Navbar = () => {
                 </li>
               ))}
             </ul>
+
+            <a
+              href={shopUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block md:ml-8 py-1.5 px-3 text-sm md:py-2 md:px-4 md:text-lg font-medium bg-primary hover:bg-primary-700 rounded-xl text-white transition-colors whitespace-nowrap"
+            >
+              Boutique en ligne
+            </a>
 
             <button
               type="button"
