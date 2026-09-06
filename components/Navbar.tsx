@@ -56,7 +56,7 @@ const Navbar = () => {
           "fixed transition-colors w-full top-0 z-50",
         )}
       >
-        <div className="flex flex-row flex-wrap items-center justify-between max-w-screen-xl mx-auto p-4 md:px-8">
+        <div className="flex flex-row flex-wrap items-center justify-between max-w-screen-2xl mx-auto p-4 md:px-8">
           <a className="flex items-center" aria-label="accueil" href="/">
             <Image
               src="/logo-text.svg"
