@@ -10,7 +10,8 @@ async function Gamme() {
   const [page] = await client.fetch<Pages[]>(
     "*[_type == 'pages' && name == 'gamme'] "
   );
-  const products = await client.fetch<Product[]>("*[_type == 'product']");
+  const products =
+    (await client.fetch<Product[]>("*[_type == 'product']")) ?? [];
 
   const byGamme = products.reduce((acc, val) => {
     const category = val.categorty ?? "";
@@ -32,9 +33,9 @@ async function Gamme() {
       }
     `}</style>
       <Container>
-        <Heading>{page.title}</Heading>
+        <Heading>{page?.title ?? "Notre gamme"}</Heading>
         <div className="mb-16 text-lg">
-          <PageContent>{page.content}</PageContent>
+          <PageContent>{page?.content}</PageContent>
         </div>
         {Object.entries(byGamme).map(([category, items]) => (
           <div key={category}>
@@ -52,6 +53,7 @@ async function Gamme() {
                   volume={product.volume}
                   strength={product.strength}
                   mainImage={product.mainImage}
+                  link={product.link}
                 >
                   {product.description}
                 </ProductCard>

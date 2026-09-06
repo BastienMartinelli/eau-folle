@@ -17,9 +17,9 @@ async function Home() {
     <>
       <Hero />
       <Container className="pb-24">
-        <Heading>{page.title}</Heading>
+        {page?.title && <Heading>{page.title}</Heading>}
         <div className="text-lg home-content flex flex-col gap-3">
-          <PageContent>{page.content}</PageContent>
+          <PageContent>{page?.content}</PageContent>
         </div>
         <div className="flex justify-center mb-18">
           <a

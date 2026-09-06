@@ -12,9 +12,9 @@ async function Histoire() {
 
   return (
     <Container className="text-lg">
-      <Heading>{page.title}</Heading>
+      <Heading>{page?.title ?? "Notre histoire"}</Heading>
       <div className="flex flex-col gap-8">
-        <PageContent>{page.content}</PageContent>
+        <PageContent>{page?.content}</PageContent>
       </div>
     </Container>
   );
