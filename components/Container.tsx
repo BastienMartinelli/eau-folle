@@ -8,7 +8,7 @@ export default function Container({
 }: PropsWithChildren<React.HTMLProps<HTMLDivElement>>) {
   return (
     <div
-      className={cx("max-w-screen-xl mx-auto md:p-8 p-4", className)}
+      className={cx("max-w-screen-2xl mx-auto md:p-8 p-4", className)}
       {...props}
     >
       {children}

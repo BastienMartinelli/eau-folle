@@ -42,7 +42,7 @@ async function Gamme({ searchParams }: GammeProps) {
       .product-list {
         display: grid;
         gap: 54px;
-        grid-template-columns: repeat(auto-fill, minmax(340px, 500px));
+        grid-template-columns: repeat(auto-fill, minmax(340px, 454px));
       }
     `}</style>
       <Container>
