@@ -21,7 +21,7 @@ export default defineType({
       },
     }),
     defineField({
-      name: "categorty",
+      name: "category",
       title: "Categorie",
       type: "string",
       validation: (Rule) => Rule.required(),

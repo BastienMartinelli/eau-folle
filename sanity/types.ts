@@ -126,7 +126,7 @@ export interface Product extends SanityDocument {
    *
    *
    */
-  categorty?: string;
+  category?: string;
 
   /**
    * Image Principale — `image`
