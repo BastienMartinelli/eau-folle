@@ -1,3 +1,4 @@
+import Breadcrumb from "@/components/Breadcrumb";
 import Container from "@/components/Container";
 import Heading from "@/components/Heading";
 import { withMaintenance } from "@/components/Maintainance";
@@ -8,9 +9,12 @@ import { Contact } from "@/sanity/types";
 async function ContactPage() {
   const [contact]: Contact[] = await client.fetch("*[_type == 'contact']");
 
+  const title = "Nous contacter";
+
   return (
     <Container>
-      <Heading>Nous contacter</Heading>
+      <Breadcrumb label={title} />
+      <Heading>{title}</Heading>
       <ul className="text-xl flex flex-col gap-4 text-gray-700">
         <li>
           <a href="mailto:">Email: {contact?.email}</a>

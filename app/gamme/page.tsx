@@ -1,4 +1,5 @@
 import ProductCard from "@/components/ProductCard";
+import Breadcrumb from "@/components/Breadcrumb";
 import Container from "@/components/Container";
 import Heading from "@/components/Heading";
 import Pills from "@/components/Pills";
@@ -36,6 +37,8 @@ async function Gamme({ searchParams }: GammeProps) {
   const activeCategory =
     requested && categories.includes(requested) ? requested : null;
 
+  const title = page?.title ?? "Notre gamme";
+
   return (
     <>
       <style>{`
@@ -46,7 +49,8 @@ async function Gamme({ searchParams }: GammeProps) {
       }
     `}</style>
       <Container>
-        <Heading>{page?.title ?? "Notre gamme"}</Heading>
+        <Breadcrumb label={title} />
+        <Heading>{title}</Heading>
         <div className="mb-8 text-lg">
           <PageContent>{page?.content}</PageContent>
         </div>
