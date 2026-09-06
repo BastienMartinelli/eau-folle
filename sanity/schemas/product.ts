@@ -19,6 +19,16 @@ export default defineType({
         source: "name",
         maxLength: 96,
       },
+      validation: (Rule) =>
+        Rule.required().custom((slug) => {
+          const current = slug?.current;
+          if (!current) {
+            return "Le slug est requis";
+          }
+          return /^[a-z0-9-]+$/.test(current)
+            ? true
+            : "Uniquement minuscules, chiffres et tirets (pas d'espaces ni d'accents)";
+        }),
     }),
     defineField({
       name: "category",
