@@ -12,6 +12,9 @@ export const metadata: Metadata = {
   description: "Distillerie de Tarentaise",
 };
 
+// Vercel revalidation time
+export const revalidate = 60;
+
 export default function RootLayout({
   children,
 }: {
