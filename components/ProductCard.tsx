@@ -7,6 +7,7 @@ type ProductCardProps = Pick<
   "mainImage" | "strength" | "name" | "volume" | "link" | "slug"
 > & {
   children: Product["description"];
+  blurDataURL?: string;
 };
 
 export default function ProductCard({
@@ -14,6 +15,7 @@ export default function ProductCard({
   volume,
   strength,
   mainImage,
+  blurDataURL,
   link,
   slug,
 }: ProductCardProps) {
@@ -41,6 +43,8 @@ export default function ProductCard({
             fill
             sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 460px"
             quality={70}
+            placeholder={blurDataURL ? "blur" : "empty"}
+            blurDataURL={blurDataURL}
             className="object-cover transition-transform duration-500 group-hover:scale-105"
           />
         )}
