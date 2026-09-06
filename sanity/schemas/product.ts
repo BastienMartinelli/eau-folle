@@ -66,6 +66,13 @@ export default defineType({
       type: "blockContent",
       validation: (Rule) => Rule.required(),
     }),
+    defineField({
+      name: "link",
+      title: "Lien",
+      description: "Lien du produit vers le store",
+      type: "url",
+      validation: (Rule) => Rule.required(),
+    }),
   ],
   preview: {
     select: {

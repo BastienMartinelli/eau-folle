@@ -167,6 +167,13 @@ export interface Product extends SanityDocument {
    *
    */
   description?: BlockContent;
+
+  /**
+   * Lien — `url`
+   *
+   * Lien du produit vers le store
+   */
+  link?: string;
 }
 
 /**
