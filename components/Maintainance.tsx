@@ -11,8 +11,11 @@ export const Maintainance: React.FC = () => {
   );
 };
 
-export function withMaintenance(Comp: React.FC, path?: string) {
-  const CompWithMaintenance: React.FC = (props) => {
+export function withMaintenance<P extends object = {}>(
+  Comp: React.FC<P>,
+  path?: string
+) {
+  const CompWithMaintenance: React.FC<P> = (props) => {
     if (isMaintenance(path)) {
       return <Maintainance />;
     }
