@@ -13,7 +13,7 @@ async function ContactPage() {
 
   return (
     <Container>
-      <Breadcrumb label={title} />
+      <Breadcrumb items={[{ label: title }]} />
       <Heading>{title}</Heading>
       <ul className="text-xl flex flex-col gap-4 text-gray-700">
         <li>

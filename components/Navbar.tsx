@@ -83,7 +83,7 @@ const Navbar = () => {
               rel="noopener noreferrer"
               className="md:ml-8"
             >
-              Commander en ligne
+              Boutique en ligne
             </Button>
 
             <button
