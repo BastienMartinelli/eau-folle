@@ -4,8 +4,9 @@ import Container from "@/components/Container";
 import Heading from "@/components/Heading";
 import Pills from "@/components/Pills";
 import CategorySection from "@/components/CategorySection";
-import { Pages, Product } from "@/sanity/types";
+import { Pages } from "@/sanity/types";
 import { client } from "@/sanity/lib/client";
+import { productProjection, type ProductWithBlur } from "@/sanity/lib/product";
 import { PageContent } from "@/components/PageContent";
 import { withMaintenance } from "@/components/Maintainance";
 
@@ -18,7 +19,9 @@ async function Gamme({ searchParams }: GammeProps) {
     "*[_type == 'pages' && name == 'gamme'] ",
   );
   const products =
-    (await client.fetch<Product[]>("*[_type == 'product']")) ?? [];
+    (await client.fetch<ProductWithBlur[]>(
+      `*[_type == 'product']${productProjection}`,
+    )) ?? [];
 
   const byGamme = products.reduce((acc, val) => {
     const category = val.category ?? "";
@@ -28,7 +31,7 @@ async function Gamme({ searchParams }: GammeProps) {
       acc[category] = [val];
     }
     return acc;
-  }, {} as Record<string, Product[]>);
+  }, {} as Record<string, ProductWithBlur[]>);
 
   const categories = Object.keys(byGamme).filter(Boolean);
 
@@ -81,6 +84,7 @@ async function Gamme({ searchParams }: GammeProps) {
                   volume={product.volume}
                   strength={product.strength}
                   mainImage={product.mainImage}
+                  blurDataURL={product.blurDataURL}
                   link={product.link}
                   slug={product.slug}
                 >

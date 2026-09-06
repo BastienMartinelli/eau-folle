@@ -8,6 +8,7 @@ import { PageContent } from "@/components/PageContent";
 import { withMaintenance } from "@/components/Maintainance";
 import { client } from "@/sanity/lib/client";
 import { urlForImage } from "@/sanity/lib/image";
+import { productProjection, type ProductWithBlur } from "@/sanity/lib/product";
 import { Product } from "@/sanity/types";
 
 type ProductPageProps = {
@@ -22,8 +23,8 @@ export async function generateStaticParams() {
 }
 
 async function ProductPage({ params }: ProductPageProps) {
-  const [product] = await client.fetch<Product[]>(
-    "*[_type == 'product' && slug.current == $slug]",
+  const [product] = await client.fetch<ProductWithBlur[]>(
+    `*[_type == 'product' && slug.current == $slug]${productProjection}`,
     { slug: params.slug },
   );
 
@@ -98,6 +99,8 @@ async function ProductPage({ params }: ProductPageProps) {
               fill
               sizes="(max-width: 768px) 90vw, (max-width: 1024px) 460px, 540px"
               quality={75}
+              placeholder={product.blurDataURL ? "blur" : "empty"}
+              blurDataURL={product.blurDataURL}
               className="object-cover"
             />
           </div>
