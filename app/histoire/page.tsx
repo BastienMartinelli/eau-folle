@@ -1,3 +1,4 @@
+import Breadcrumb from "@/components/Breadcrumb";
 import Container from "@/components/Container";
 import Heading from "@/components/Heading";
 import { withMaintenance } from "@/components/Maintainance";
@@ -10,9 +11,12 @@ async function Histoire() {
     "*[_type == 'pages' && name == 'histoire'] "
   );
 
+  const title = page?.title ?? "Notre histoire";
+
   return (
     <Container className="text-lg">
-      <Heading>{page?.title ?? "Notre histoire"}</Heading>
+      <Breadcrumb label={title} />
+      <Heading>{title}</Heading>
       <div className="flex flex-col gap-8">
         <PageContent>{page?.content}</PageContent>
       </div>
