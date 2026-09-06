@@ -26,9 +26,7 @@ export default function ProductCard({
         style={{ width: "100%", aspectRatio: "9/15" }}
         className="relative w-full flex flex-col md:flex-row rounded-3xl overflow-hidden border-1 shadow-2xl transition-transform group-hover:scale-105"
       >
-        {imageUrl && (
-          <Image src={imageUrl} alt="" aria-hidden="true" fill />
-        )}
+        {imageUrl && <Image src={imageUrl} alt="" aria-hidden="true" fill />}
       </div>
       <div className="mt-2 gap-6 px-6 py-7 flex flex-col flex-grow">
         <div className="text-2xl relative flex gap-2">
@@ -38,7 +36,9 @@ export default function ProductCard({
               href={link}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label={`${name ?? "Ce produit"} — voir dans la boutique en ligne`}
+              aria-label={`${
+                name ?? "Ce produit"
+              } — voir dans la boutique en ligne`}
               className="after:absolute after:inset-0 after:rounded-3xl hover:text-primary transition-colors focus:outline-none"
             >
               {name}
@@ -53,14 +53,30 @@ export default function ProductCard({
           </div>
         )}
         <div className="flex-grow" />
-        <div className="flex flex-wrap gap-2 text-xl text-gray-600">
+        <div className="flex flex-col gap-2 text-xl text-gray-600">
           <span>
-            Titrage volumique: <strong>{strength}°</strong>
+            TAV : <strong>{strength}°</strong> alc. vol.
           </span>
           <span>
             Volume: <strong>{volume?.map((v) => `${v}L`)?.join(", ")}</strong>
           </span>
         </div>
+        {link && (
+          <div className="relative z-10 mt-2 flex">
+            <a
+              href={link}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Commander ${
+                name ?? "ce produit"
+              } dans la boutique en ligne`}
+              className="ml-auto inline-flex items-center gap-1 text-lg font-medium text-primary hover:text-primary-700 transition-colors"
+            >
+              <span className="underline underline-offset-4">Commander</span>
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        )}
       </div>
     </li>
   );
