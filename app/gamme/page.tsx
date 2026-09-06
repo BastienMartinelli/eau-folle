@@ -1,14 +1,20 @@
 import ProductCard from "@/components/ProductCard";
 import Container from "@/components/Container";
 import Heading from "@/components/Heading";
+import Pills from "@/components/Pills";
+import CategorySection from "@/components/CategorySection";
 import { Pages, Product } from "@/sanity/types";
 import { client } from "@/sanity/lib/client";
 import { PageContent } from "@/components/PageContent";
 import { withMaintenance } from "@/components/Maintainance";
 
-async function Gamme() {
+type GammeProps = {
+  searchParams?: { [key: string]: string | string[] | undefined };
+};
+
+async function Gamme({ searchParams }: GammeProps) {
   const [page] = await client.fetch<Pages[]>(
-    "*[_type == 'pages' && name == 'gamme'] "
+    "*[_type == 'pages' && name == 'gamme'] ",
   );
   const products =
     (await client.fetch<Product[]>("*[_type == 'product']")) ?? [];
@@ -23,6 +29,13 @@ async function Gamme() {
     return acc;
   }, {} as Record<string, Product[]>);
 
+  const categories = Object.keys(byGamme).filter(Boolean);
+
+  const requested =
+    typeof searchParams?.category === "string" ? searchParams.category : null;
+  const activeCategory =
+    requested && categories.includes(requested) ? requested : null;
+
   return (
     <>
       <style>{`
@@ -34,11 +47,22 @@ async function Gamme() {
     `}</style>
       <Container>
         <Heading>{page?.title ?? "Notre gamme"}</Heading>
-        <div className="mb-16 text-lg">
+        <div className="mb-8 text-lg">
           <PageContent>{page?.content}</PageContent>
         </div>
+        {categories.length > 0 && (
+          <Pills
+            items={categories}
+            selected={activeCategory}
+            className="mt-14"
+          />
+        )}
         {Object.entries(byGamme).map(([category, items]) => (
-          <div key={category}>
+          <CategorySection
+            key={category}
+            category={category}
+            active={activeCategory}
+          >
             <h2
               className="text-3xl mb-12 mt-16 font-medium text-primary"
               id={category}
@@ -59,7 +83,7 @@ async function Gamme() {
                 </ProductCard>
               ))}
             </ul>
-          </div>
+          </CategorySection>
         ))}
       </Container>
     </>
